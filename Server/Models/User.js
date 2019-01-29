@@ -3,7 +3,7 @@ const Scehma = mongoose.Schema
 
 
 const userSchema = new Scehma ({
-    firstName: String,
+    name: String,
     lastName: String,
     username: String,
     password: String,

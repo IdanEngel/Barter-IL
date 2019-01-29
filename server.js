@@ -25,17 +25,14 @@ app.use(function (req, res, next) {
 app.use('/', routes)
 
 
-// let saveToDB = () => {
-//     for (let i of dummyData) {
-//         let UserData = new User(i)
-//         UserData.save()
-//     }
-// }
-// saveToDB()
+let saveToDB = () => {
+    for (let i of dummyData) {
+        let UserData = new User(i)
+        UserData.save()
+    }
+}
+saveToDB()
 
-// app.get('/', (req, res)=>{
-//    res.send('working!')
-// })
 
 app.listen(8000, function () {
     console.log(`Yo yo i'm running here!`)
