@@ -1,0 +1,51 @@
+[{
+
+    "firstName": "Abby",
+    "lastName": "Einhorn",
+    "username": "abs200",
+    "password": "hackathon@123",
+    "interests": ["swimming", "cooking", "fishing"],
+    "matches": ["123", "34"],
+    "reviews": [{"name": "idan500", "review": "The best knitter I know" }],
+    "location": "TLV",
+    "age": "23",
+    "skils": ["rock climbing", "dancing", "knitting"]
+  
+},
+  {
+    "firstName": "Idan",
+    "lastName": "Engel",
+    "username": "idan500",
+    "password": "hack12453",
+    "interests": ["swimming", "history", "breaking teeth"],
+    "matches": ["123", "500"],
+    "reviews": [{"name": "abs200", "review": "The best dancer in TLV" }],
+    "location": "TLV",
+    "age": "23",
+    "skils": ["rock climbing", "dancing", "knitting"]
+  },
+  {
+    "firstName": "Shoobert",
+    "lastName": "Hunt",
+    "username": "shoobydoo",
+    "password": "shoobs",
+    "interests": ["coding", "learning"],
+    "matches": ["3434534", "123"],
+    "reviews": [{"name": "abs200", "review": "The best dancer in TLV" }],
+    "location": "TLV",
+    "age": "23",
+    "skils": ["rock climbing", "dancing", "knitting"]
+  },
+  {
+    "firstName": "John",
+    "lastName": "Smith",
+    "username": "smithy1948",
+    "password": "smits",
+    "interests": ["drawing", "archery"],
+    "matches": ["435", "123"],
+    "reviews": [{"name": "abs200", "review": "The best dancer in TLV" }],
+    "location": "TLV",
+    "age": "23",
+    "skils": ["horseback riding", "running", "olympic weightlifting"]
+  }
+] 
