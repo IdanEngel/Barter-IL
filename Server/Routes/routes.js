@@ -1,9 +1,7 @@
 const express = require('express')
 const router = express.Router()
 const User = require('../Models/User')
-// router.get('/', (req, res)=>{
-//     res.send('hello')
-// })
+
 
 //get all users
 router.get('/users', (req, res) => {
@@ -12,5 +10,10 @@ router.get('/users', (req, res) => {
     });
 })
 
+router.post('/newuser', async function(req, res){
+    let newUser = await new User (req.body)
+    newUser.save()
+    res.send('new user saved to DB')
+})
 
 module.exports = router
