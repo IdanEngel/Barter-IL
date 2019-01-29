@@ -6,11 +6,12 @@
     "password": "hackathon@123",
     "email":  "abby@hacker.com",
     "interests": ["swimming", "cooking", "fishing"],
+    "likes": [],
     "matches": ["123", "34"],
     "reviews": [{"username": "idan500", "review": "The best knitter I know" }],
     "location": "TLV",
     "age": "23",
-    "skils": ["rock climbing", "dancing", "knitting"]
+    "skills": ["rock climbing", "dancing", "knitting"]
   
 },
   {
@@ -20,11 +21,12 @@
     "password": "hack12453",
     "email":  "idano@hacker.com",
     "interests": ["swimming", "history", "breaking teeth"],
+    "likes": [],
     "matches": ["123", "500"],
     "reviews": [{"username": "abs200", "review": "The best dancer in TLV" }],
     "location": "TLV",
     "age": "23",
-    "skils": ["rock climbing", "dancing", "knitting"]
+    "skills": ["rock climbing", "dancing", "knitting"]
   },
   {
     "name": "Shoobert",
@@ -33,11 +35,12 @@
     "password": "shoobs",
     "email":  "shoobs@hacker.com",
     "interests": ["coding", "learning"],
+    "likes": [],
     "matches": ["3434534", "123"],
     "reviews": [{"username": "abs200", "review": "The best dancer in TLV" }],
     "location": "TLV",
     "age": "23",
-    "skils": ["rock climbing", "dancing", "knitting"]
+    "skills": ["rock climbing", "dancing", "knitting"]
   },
   {
     "name": "John",
@@ -46,10 +49,11 @@
     "password": "smits",
     "email":  "johnyboy@hacker.com",
     "interests": ["drawing", "archery"],
+    "likes": [],
     "matches": ["435", "123"],
     "reviews": [{"username": "abs200", "review": "The best dancer in TLV" }],
     "location": "TLV",
     "age": "23",
-    "skils": ["horseback riding", "running", "olympic weightlifting"]
+    "skills": ["horseback riding", "running", "olympic weightlifting"]
   }
 ] 
