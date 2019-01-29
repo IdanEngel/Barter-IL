@@ -1,13 +1,15 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom'
 import Axios from 'axios';
+import User from './User';
 
 
 class Users extends Component {
     constructor() {
         super()
         this.state = {
-            users: []
+            users: [],
+            index: 0
         }
     }
     getUsers = async () => {
@@ -19,26 +21,32 @@ class Users extends Component {
     componentDidMount() {
         this.getUsers()
     }
+
+    increaseIndex = async () => {
+        const newIndex = this.state.index + 1
+        let users = await this.getUsers()
+        if (this.state.index <= users.data.length) {
+            this.setState({
+                index: newIndex
+            })
+        }
+    }
     render() {
         console.log(this.state.users)
+        const filterdUsers = this.state.users.filter((user, index) => {
+            return (index <= this.state.index)
+            })
         return (
             <div>
-                {this.state.users.map(user => {
+                {filterdUsers.map(user => {
                     return (
-                        <div className="user-info">
-                            <div>{user.name}</div>
-                            <div>{user.age}</div>
-                            <div>{user.location}</div>
-                            <div>{user.skills}</div>
-                            {/* <div>{user.skills.forEach(skill=>{
-                                return(
-                                    <span>{skill}</span>
-                                )
-                            })}</div> */}
-                        </div>
+                        <User user={user} />
                     )
                 }
                 )}
+                <button onClick={this.increaseIndex}>dislike</button>
+                <button>like</button>
+
             </div>
         )
     }
