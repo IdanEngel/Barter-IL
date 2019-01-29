@@ -17,6 +17,7 @@ class Users extends Component {
         this.setState({
             users: users.data
         })
+        return users
     }
     componentDidMount() {
         this.getUsers()
@@ -31,22 +32,24 @@ class Users extends Component {
             })
         }
     }
+    likingUser = (e) =>{
+        console.log(e)
+        this.increaseIndex()
+    }
     render() {
         console.log(this.state.users)
         const filterdUsers = this.state.users.filter((user, index) => {
-            return (index <= this.state.index)
+            return (index === this.state.index)
             })
         return (
             <div>
                 {filterdUsers.map(user => {
                     return (
-                        <User user={user} />
+                        <User user={user}  likingUser={this.likingUser}/>
                     )
                 }
                 )}
-                <button onClick={this.increaseIndex}>dislike</button>
-                <button>like</button>
-
+              
             </div>
         )
     }

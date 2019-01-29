@@ -3,6 +3,10 @@ import { Link } from 'react-router-dom'
 import Axios from 'axios';
 
 class User extends Component {
+    likingUser = (event) =>{
+        this.props.likingUser(event.target.value)
+        
+    }
     render() {
         const user = this.props.user
         return (
@@ -17,8 +21,11 @@ class User extends Component {
                         )
                     })}
                     </div>
+                <button onClick={this.likingUser}   >dislike</button>
+                <button onClick={this.likingUser} value={user._id}>like</button>
 
                 </div>
+
             </div>
         )
     }
