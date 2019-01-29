@@ -3,9 +3,9 @@ const bodyParser = require('body-parser')
 const mongoose = require('mongoose')
 const path = require('path')
 const app = express()
-// const api = require('./server/routes/api')
-// const User = require('./server/model/schemas')
-// const jsonData = require('./dummy-data/dummyData')
+const routes = require('./server/Routes/routes')
+const User = require('./server/Models/User')
+const dummyData = require('./src/dummyData')
 
 app.use(express.static(path.join(__dirname, 'src')))
 app.use(express.static(path.join(__dirname, 'node_modules')))
@@ -22,17 +22,23 @@ app.use(function (req, res, next) {
     next()
 })
 
-// app.use('/', api)
+app.use('/', routes)
 
 
-let saveToDB = () => {
-    for (let i of jsonData.users) {
-        let UserData = new User(i)
-        UserData.save()
-    }
-}
+// let saveToDB = () => {
+//     for (let i of dummyData) {
+//         let UserData = new User(i)
+//         UserData.save()
+//     }
+// }
 // saveToDB()
+
+// app.get('/', (req, res)=>{
+//    res.send('working!')
+// })
 
 app.listen(8000, function () {
     console.log(`Yo yo i'm running here!`)
 })
+
+// module.exports = router
