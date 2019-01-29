@@ -7,6 +7,7 @@ const userSchema = new Scehma ({
     lastName: String,
     username: String,
     password: String,
+    email: String,
     interests: Array,
     matches: Array,
     reviews: Array,
