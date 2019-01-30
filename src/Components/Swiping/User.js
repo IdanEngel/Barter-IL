@@ -21,7 +21,7 @@ class User extends Component {
                         )
                     })}
                     </div>
-                <button onClick={this.likingUser}   >dislike</button>
+                <button onClick={this.likingUser}>dislike</button>
                 <button onClick={this.likingUser} value={user._id}>like</button>
 
                 </div>
