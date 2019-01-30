@@ -10,26 +10,34 @@ router.get('/users', (req, res) => {
     });
 })
 
-router.post('/newuser', async function(req, res){
-    let newUser = await new User (req.body)
+router.post('/newuser', async function (req, res) {
+    let newUser = await new User(req.body)
     newUser.save()
     res.send('new user saved to DB')
 })
 
 //sending the user details to the client
-router.get('/profile/:userId', (req, res) =>{
-    User.findById(req.params.userId, function(error, user){
+router.get('/profile/:userId', (req, res) => {
+    User.findById(req.params.userId, function (error, user) {
         res.send(user)
     })
 })
 
 router.put('/users/:currentUser', (req, res) => {
-    User.findByIdAndUpdate(req.params.id),
-    {
-         $push:{
-             likes: req.body.id
-         }
-    }
+    let userId = req.params.currentUser
+    let likedUserId = req.body.id
+    User.findByIdAndUpdate(userId, {
+
+        $push: {
+            likes: req.body.id
+        }
+    }, { new: true },
+        function (error, user) {
+            console.log(user)
+
+            res.send(req.body.id)
+        })
 })
+
 
 module.exports = router

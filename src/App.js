@@ -1,23 +1,13 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
 import './App.css';
+import { observer } from 'mobx-react'
 import Login from './Components/Landing/Login';
 import Users from './Components/Swiping/Users';
 import NavBar from './Components/NavBar';
 
+@observer
 class App extends Component {
-  constructor(){
-    super()
-    this.state={
-      currentuser: ""
-    }
-  }
-  // getCurrentUser = async () =>{
-  //   currentuser =  Axios.get('http://localhost:8000/profile/userId')
-  //   this.setState=({
-  //     currentuser
-  //   })
-  // }
   render() {
     return (
       <Router>
