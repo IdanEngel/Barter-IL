@@ -24,8 +24,56 @@ router.get('/profile/:userName', (req, res) => {
     })
 })
 
+router.put('/users/:currentUser', (req, res) => {
+    updateMatches = (userOne, userTwo) => {
+        User.findByIdAndUpdate(userOne, {
+            $push: {
+                matches: `${userTwo._id}`
+            }
 
+        }, { new: true }, function (err, data) {
+            console.log(data)
+        })
+        User.findByIdAndUpdate(userTwo, {
+            $pull: {
+                likes: `${userOne._id}`
+            }
+        }, { new: true }, function (err, data) {
+            console.log('you have a match')
+
+        })
+    }
+        updatLikes = (userOne, userTwo) => {
+            User.findByIdAndUpdate(userOne, {
+                $push: {
+                    likes: `${userTwo._id}`
+                }
+
+            }, { new: true }, function (err, data) {
+            })
+        }
     
     
-    
-    module.exports = router
+    ids = [req.params.currentUser, req.body.id]
+    User.find({
+        _id: {
+            $in: [req.params.currentUser, req.body.id]
+        }
+    }, function (err, data) {
+        const activeUser = data[0]
+        const likedUser = data[1]
+        if (likedUser.likes.find(liked => activeUser._id == liked)) {
+            updateMatches(activeUser, likedUser)
+            updateMatches(likedUser, activeUser)
+        } else {
+            updatLikes(activeUser, likedUser)
+        }
+
+    })
+    res.end()
+})
+
+
+
+
+module.exports = router

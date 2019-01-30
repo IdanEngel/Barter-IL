@@ -11,7 +11,8 @@
     "reviews": [{"username": "idan500", "review": "The best knitter I know" }],
     "location": "TLV",
     "age": "23",
-    "skills": ["rock climbing", "dancing", "knitting"]
+    "skills": ["rock climbing", "dancing", "knitting"],
+    "imgURL": "http://pm1.narvii.com/5866/76b201e12343e860570c62f4067307e04ed545fe_00.jpg"
   
 },
   {
@@ -26,7 +27,8 @@
     "reviews": [{"username": "abs200", "review": "The best dancer in TLV" }],
     "location": "TLV",
     "age": "23",
-    "skills": ["rock climbing", "dancing", "knitting"]
+    "skills": ["rock climbing", "dancing", "knitting"],
+    "imgURL": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSQmr5tUnduZEcuu8zRkOyKJRAQx6RA8xlJJBpmumSUjBw3nhiSBg"
   },
   {
     "_id": {
@@ -43,7 +45,8 @@
     "reviews": [{"username": "abs200", "review": "The best dancer in TLV" }],
     "location": "TLV",
     "age": "23",
-    "skills": ["rock climbing", "dancing", "knitting"]
+    "skills": ["rock climbing", "dancing", "knitting"],
+    "imgURL": "https://media.licdn.com/dms/image/C5603AQFeD2Nyr-56vw/profile-displayphoto-shrink_200_200/0?e=1551312000&v=beta&t=3HpazftYEi9LINAIQa4kyWxj2kzz_qCpkExKtIjjpco"
   },
   {
     "_id": {
@@ -60,6 +63,7 @@
     "reviews": [{"username": "abs200", "review": "The best dancer in TLV" }],
     "location": "TLV",
     "age": "23",
-    "skills": ["horseback riding", "running", "olympic weightlifting"]
+    "skills": ["horseback riding", "running", "olympic weightlifting"], 
+    "imgURL": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRCr5e8to70ECuMH_IjO4Bx0xu6CR--ikJ11t_-Z18tBXEoGSSU"
   }
 ] 
