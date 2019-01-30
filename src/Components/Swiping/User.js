@@ -12,7 +12,7 @@ class User extends Component {
         return (
             <div>
                 <div className="user-info">
-                    <img src={user.imgURL}></img>
+                  <img src={user.imgURL}></img>
                     <div>{user.name}</div>
                     <div>{user.age}</div>
                     <div>{user.location}</div>
