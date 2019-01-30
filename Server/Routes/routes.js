@@ -17,6 +17,7 @@ router.post('/newuser', async function (req, res) {
 })
 
 //sending the user details to the client
+
 router.get('/profile/:userName', (req, res) => {
     User.findOne({username: req.params.userName}, function (error, user) {
         res.send(user)
@@ -24,24 +25,17 @@ router.get('/profile/:userName', (req, res) => {
 })
 
 router.put('/users/:currentUser', (req, res) => {
-    let userId = req.params.currentUser
-    let likedUserId = req.body.id
-    User.findByIdAndUpdate(userId, function(likedUserId) {
-        for(i = 0; i < likes.length; i++){
-            if(likes.includes(likedUserId)){
-                {
-                    $push: {
-                        likes: req.body.id
-                    }
-                
-            })      
+    User.findByIdAndUpdate(userId, {
+
+        $push: {
+            likes: req.body.id
         }
-    }
-        }, { new: true },
+    }, { new: true },
         function (error, user) {
             console.log(user)
+
+            res.send(req.body.id)
         })
-    res.send(req.body.id)
 })
 
 
