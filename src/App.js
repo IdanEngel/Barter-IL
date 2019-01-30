@@ -6,18 +6,7 @@ import Users from './Components/Swiping/Users';
 import NavBar from './Components/NavBar';
 
 class App extends Component {
-  constructor(){
-    super()
-    this.state={
-      currentuser: ""
-    }
-  }
-  // getCurrentUser = async () =>{
-  //   currentuser =  Axios.get('http://localhost:8000/profile/userId')
-  //   this.setState=({
-  //     currentuser
-  //   })
-  // }
+
   render() {
     return (
       <Router>

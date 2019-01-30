@@ -9,7 +9,8 @@ class Users extends Component {
         super()
         this.state = {
             users: [],
-            index: 0
+            index: 0,
+            currentUser: ""
         }
     }
     getUsers = async () => {
