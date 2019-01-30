@@ -44,6 +44,7 @@ class Users extends Component {
             })
         return (
             <div>
+                Swiping user component
                 {filterdUsers.map(user => {
                     return (
                         <User user={user}  likingUser={this.likingUser}/>
