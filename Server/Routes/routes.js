@@ -1,6 +1,7 @@
 const express = require('express')
 const router = express.Router()
 const User = require('../Models/User')
+const matchesAndLikes = require('../Scripts/Logic')
 
 
 //get all users
@@ -18,26 +19,13 @@ router.post('/newuser', async function (req, res) {
 
 //sending the user details to the client
 router.get('/profile/:userName', (req, res) => {
-    User.findOne({username: req.params.userName}, function (error, user) {
+    User.findOne({ username: req.params.userName }, function (error, user) {
         res.send(user)
     })
 })
 
-router.put('/users/:currentUser', (req, res) => {
-    let userId = req.params.currentUser
-    let likedUserId = req.body.id
-    User.findByIdAndUpdate(userId, {
 
-        $push: {
-            likes: req.body.id
-        }
-    }, { new: true },
-        function (error, user) {
-            console.log(user)
-
-            res.send(req.body.id)
-        })
-})
-
-
-module.exports = router
+    
+    
+    
+    module.exports = router

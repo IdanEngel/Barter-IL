@@ -29,6 +29,9 @@
     "skills": ["rock climbing", "dancing", "knitting"]
   },
   {
+    "_id": {
+      "$oid": "5c506b6de0c7355250db1799"
+    },
     "name": "Shoobert",
     "lastName": "Hunt",
     "username": "shoobydoo",
@@ -43,6 +46,9 @@
     "skills": ["rock climbing", "dancing", "knitting"]
   },
   {
+    "_id": {
+      "$oid": "5c506b6de0c7355250db179a"
+    },
     "name": "John",
     "lastName": "Smith",
     "username": "smithy1948",
