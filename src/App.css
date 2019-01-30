@@ -64,11 +64,14 @@ body {
 }
 
 img {
-  height: 380px;
+  height: 266px;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
 }
-
+.swipeUser-info{
+  align-content: center;
+}
+/* 
 button[aria-label="previous"],
 button[aria-label="next"] {
   background: salmon !important;
@@ -111,4 +114,4 @@ h5:last-of-type {
 }
 /* .user-image{
   border-radius: 50%;
-} */
+} */ 

@@ -25,6 +25,8 @@ router.get('/profile/:userName', (req, res) => {
 })
 
 router.put('/users/:currentUser', (req, res) => {
+    console.log("here with " + req.params.currentUser)
+
     updateMatches = (userOne, userTwo) => {
         User.findByIdAndUpdate(userOne, {
             $push: {
@@ -43,7 +45,7 @@ router.put('/users/:currentUser', (req, res) => {
 
         })
     }
-        updatLikes = (userOne, userTwo) => {
+        updateLikes = (userOne, userTwo) => {
             User.findByIdAndUpdate(userOne, {
                 $push: {
                     likes: `${userTwo._id}`
@@ -52,24 +54,28 @@ router.put('/users/:currentUser', (req, res) => {
             }, { new: true }, function (err, data) {
             })
         }
-    
-    
     ids = [req.params.currentUser, req.body.id]
+    console.log(`req id: ${req.body.id}`)
+    console.log(`cuurent id: ${req.params.currentUser}`)
+
     User.find({
         _id: {
             $in: [req.params.currentUser, req.body.id]
         }
     }, function (err, data) {
-        const activeUser = data[0]
-        const likedUser = data[1]
-        if (likedUser.likes.find(liked => activeUser._id == liked)) {
+        const activeUser = data[1]
+        const likedUser = data[0]
+        if (likedUser.likes.find(liked => activeUser.id == liked)) {
+           //for active user
+           console.log("calling")
             updateMatches(activeUser, likedUser)
+            //for likedUser
             updateMatches(likedUser, activeUser)
         } else {
-            updatLikes(activeUser, likedUser)
+            updateLikes(activeUser, likedUser)
         }
-
-    })
+        console.log(`added match`)
+})
     res.end()
 })
 
