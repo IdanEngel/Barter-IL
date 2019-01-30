@@ -14,7 +14,8 @@ const userSchema = new Scehma ({
     reviews: Array,
     location: String,
     age: Number,
-    skills: Array
+    skills: Array,
+    imgURL: String
 })
 
 const User = mongoose.model("User", userSchema)
