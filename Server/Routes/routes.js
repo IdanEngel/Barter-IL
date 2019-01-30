@@ -26,22 +26,17 @@ router.get('/profile/:userName', (req, res) => {
 router.put('/users/:currentUser', (req, res) => {
     let userId = req.params.currentUser
     let likedUserId = req.body.id
-    User.findByIdAndUpdate(userId, function(likedUserId) {
-        for(i = 0; i < likes.length; i++){
-            if(likes.includes(likedUserId)){
-                {
-                    $push: {
-                        likes: req.body.id
-                    }
-                
-            })      
+    User.findByIdAndUpdate(userId, {
+
+        $push: {
+            likes: req.body.id
         }
-    }
-        }, { new: true },
+    }, { new: true },
         function (error, user) {
             console.log(user)
+
+            res.send(req.body.id)
         })
-    res.send(req.body.id)
 })
 
 

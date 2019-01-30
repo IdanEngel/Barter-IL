@@ -52,8 +52,13 @@
     "react-app-polyfill": "^0.2.0",
     "react-dev-utils": "^7.0.1",
     "react-dom": "^16.7.0",
+
     "react-router": "^4.3.1",
     "react-router-dom": "^4.3.1",
+<<<<<<< HEAD
+=======
+
+>>>>>>> aef98491701ba9aad404da1c3656ae4b56280a17
     "resolve": "1.8.1",
     "sass-loader": "7.1.0",
     "style-loader": "0.23.0",
@@ -133,8 +138,20 @@
     ]
   },
   "babel": {
+<<<<<<< HEAD
+=======
+    "plugins": [
+      [
+        "@babel/plugin-proposal-decorators",
+        {
+          "legacy": true
+        }
+      ]
+    ],
+>>>>>>> aef98491701ba9aad404da1c3656ae4b56280a17
     "presets": [
       "react-app"
     ]
   }
 }
+
