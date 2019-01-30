@@ -9,6 +9,7 @@ const userSchema = new Scehma ({
     password: String,
     email: String,
     interests: Array,
+    likes: Array,
     matches: Array,
     reviews: Array,
     location: String,
