@@ -100,6 +100,9 @@ img {
   height:400px;
   align-content: center;
 }
+h1{
+  text-align: center;
+}
 /* 
 button[aria-label="previous"],
 button[aria-label="next"] {
