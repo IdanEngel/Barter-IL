@@ -13,10 +13,13 @@ class userFromDb {
             return this.users
     }
     @action increaseIndex = async () => {
-        if (this.index <= this.users.length) {
+        if (this.index < this.users.length) {
            this.index++
         }
+       
+      
     }
+    
 
 }
 
