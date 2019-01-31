@@ -21,9 +21,10 @@ body {
   height: 100%;
   width: 100%;
   user-select: none;
-  font-family: Raleway, sans-serif;
-  position: fixed;
+  font-family: 'Noto Serif SC', serif;
+    position: fixed;
   overflow: hidden;
+  font-family: 'Noto Serif SC', serif;
 }
 
 #root {
@@ -64,11 +65,29 @@ body {
 }
 
 img {
-  height: 380px;
+  height: 266px;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
+  margin-top: 5px;
+}
+.swipeUser-info{
+  align-content: center;
+}
+.reviews{
+  text-align: center;
+
 }
 
+.text-user {
+    text-align: center;
+}
+.dislikeButton{
+  float: left;
+}
+.likeButton{
+  float: right;
+}
+/* 
 button[aria-label="previous"],
 button[aria-label="next"] {
   background: salmon !important;
@@ -111,4 +130,4 @@ h5:last-of-type {
 }
 /* .user-image{
   border-radius: 50%;
-} */
+} */ 

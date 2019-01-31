@@ -12,6 +12,7 @@ const userSchema = new Scehma ({
     likes: Array,
     matches: Array,
     reviews: Array,
+    messages: Array,
     location: String,
     age: Number,
     skills: Array,
