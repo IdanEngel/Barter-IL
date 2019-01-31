@@ -83,9 +83,22 @@ img {
 }
 .dislikeButton{
   float: left;
+  font-size: 22px;
+  /* margin-left */
+
 }
 .likeButton{
   float: right;
+  font-size: 22px;
+  color: red
+
+}
+.currentUserPage{
+  text-align: center;
+}
+.chatImg{
+  height:400px;
+  align-content: center;
 }
 /* 
 button[aria-label="previous"],
