@@ -35,7 +35,6 @@ class Users extends Component {
         return (
             <div>
                 <NavBar />
-                Swiping user component
                 {filterdUsers.map(user => {
                     return (
                         <div>

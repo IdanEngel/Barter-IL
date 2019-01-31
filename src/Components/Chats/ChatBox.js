@@ -15,17 +15,18 @@ class ChatBox extends Component{
             message: newMessage
         })
 
-    sendMessage(){
-            axios.put()
-        }
+    // sendMessage(){
+    //         axios.put()
+    //     }
     }
     render(){
         return(
             <div className="chat-box">
-            <Messages messages={this.props.user.messages} />
+            {/* <Messages messages={this.props.user.messages} /> */}
             <input id="message-input" placeholder="Write your text here" onChange={this.setMessage}></input>
             <button id="send-button" onClick={this.sendMessage}></button>
             </div>
         )
     }
 }
+export default ChatBox

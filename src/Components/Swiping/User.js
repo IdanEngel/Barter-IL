@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom'
 import { observer, inject } from 'mobx-react'
 import Carousel from 'nuka-carousel';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
-import Axios from 'axios';
 
 @inject('UserData')
 @observer
@@ -20,29 +19,34 @@ class User extends Component {
             <div>
                 {/* {this.props.UserData.currentUser !== this.props.user._id ? */}
                 <div className="swipe-card">
-                        <div >
-                    <Carousel>
-                        <div className="swipeUser-info" >
-                            <img src={user.imgURL}></img>
-                            <div>{user.name}</div>
-                            <div>{user.skills.map(skill => {
-                                return (
-                                    <li>{skill}</li>
-                                )
-                            })}
+                    <div >
+                        <Carousel>
+                            <div className="swipeUser-info" >
+                                <img src={user.imgURL}></img>
+                                <div className="text-user">
+                                    <h3>{user.name}</h3>
+                                    <h4>Skills:</h4>
+                                    <div>{user.skills.map(skill => {
+                                        return (
+                                            <li>{skill}</li>
+                                        )
+                                    })}
+                                    </div>
+                                    <div>{user.location}</div>
+                                    <div>{user.age}</div>
+                                </div>
                             </div>
-                            <div>{user.location}</div>
-                            <div>{user.age}</div>
-                        </div>
-                        <div className="reviews">
-                            insert reviews here for this specific user
-                            
-                         </div>
-                    </Carousel>
-                        </div>
+                            <div className="reviews">
+                                <h1>Reviews</h1>
+                                <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p>
+                            </div>
+                        </Carousel>
+                    </div>
+                    <div className="swiping-buttons">
+                    <FontAwesomeIcon  className="likeButton" onClick={this.likingUser} icon="heart"></FontAwesomeIcon>
+                     <FontAwesomeIcon className="dislikeButton" onClick={this.props.dislikeUser} icon="times-circle"></FontAwesomeIcon>
+                    </div>
 
-                    <button onClick={this.props.dislikeUser}>dislike</button>
-                    <button onClick={this.likingUser}>like</button>
                 </div>
                 {/* : null} */}
 
