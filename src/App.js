@@ -2,14 +2,14 @@ import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
 import './App.css';
 import { observer } from 'mobx-react'
-
 import Login from './Components/Landing/Login';
 import Users from './Components/Swiping/Users';
-import NavBar from './Components/NavBar';
 import CurrentUser from './Components/UserPage/CurrentUser';
-import User from './Components/Swiping/User';
 import Chats from './Components/Chats/Chats';
-import Deck from './Components/Swiping/Deck';
+import { faUser, faComment, faUserFriends, faHandHoldingHeart, faHeart, faTimesCircle} from '@fortawesome/free-solid-svg-icons'
+import { library } from '@fortawesome/fontawesome-svg-core'
+library.add(faUser, faComment, faUserFriends, faHandHoldingHeart, faHeart, faTimesCircle)
+
 
 
 @observer

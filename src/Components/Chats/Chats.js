@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { Route} from 'react-router-dom';
-import './ChatList';
+import Chatlist from './ChatList';
 
 class Chats extends Component {
   constructor(){
@@ -13,7 +13,7 @@ class Chats extends Component {
   render() {
     return (
     <div className="chats">
-  <Route path="/chatlist" exact Component={ChatList} />
+  <Route path="/chatlist" exact Component={Chatlist} />
     </div>
     );
   }
