@@ -1,15 +1,32 @@
 import React, { Component } from 'react';
+import { Redirect } from 'react-router-dom'
+import Axios from 'axios';
 import { observer, inject } from 'mobx-react'
 import Carousel from 'nuka-carousel';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 
+
 @inject('UserData')
 @observer
 class User extends Component {
-
+    constructor() {
+        super()
+        this.state = {
+            val: false
+        }
+    }
+     
     likingUser = () => {
         this.props.likingUser(this.props.user._id)
+
+
+    }
+    clearLS = () =>{
+        localStorage.clear()
+        this.setState({
+            val: !this.state.val
+        })
 
     }
     render() {
@@ -46,6 +63,7 @@ class User extends Component {
                     <FontAwesomeIcon  className="likeButton" onClick={this.likingUser} icon="heart"></FontAwesomeIcon>
                      <FontAwesomeIcon className="dislikeButton" onClick={this.props.dislikeUser} icon="times-circle"></FontAwesomeIcon>
                     </div>
+
 
                 </div>
                 {/* : null} */}

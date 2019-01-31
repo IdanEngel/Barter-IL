@@ -4,11 +4,13 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import UserData from '../src/Store/UserData'
+import userLogin from '../src/Store/userLogin'
 import { Provider } from 'mobx-react';
 
-const allUsers = { UserData }
+const stores = { UserData, userLogin}
 
-ReactDOM.render(<Provider {...allUsers} >
+
+ReactDOM.render(<Provider {...stores}  >
     <App /> 
     </Provider>,
     document.getElementById('root'));
