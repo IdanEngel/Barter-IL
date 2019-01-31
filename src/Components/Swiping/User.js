@@ -17,7 +17,6 @@ class User extends Component {
 
         return (
             <div>
-                {/* {this.props.UserData.currentUser !== this.props.user._id ? */}
                 <div className="swipe-card">
                     <div >
                         <Carousel>
@@ -43,8 +42,8 @@ class User extends Component {
                         </Carousel>
                     </div>
                     <div className="swiping-buttons">
-                    <FontAwesomeIcon  className="likeButton" onClick={this.likingUser} icon="heart"></FontAwesomeIcon>
-                     <FontAwesomeIcon className="dislikeButton" onClick={this.props.dislikeUser} icon="times-circle"></FontAwesomeIcon>
+                        <FontAwesomeIcon className="likeButton" onClick={this.likingUser} icon="heart"></FontAwesomeIcon>
+                        <FontAwesomeIcon className="dislikeButton" onClick={this.props.dislikeUser} icon="times-circle"></FontAwesomeIcon>
                     </div>
 
                 </div>
