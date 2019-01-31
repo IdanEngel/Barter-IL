@@ -10,9 +10,16 @@ class Signup extends Component {
     }
     render() {
         return (
-            <div className="form-container">
-
+            <div class="navigation">
+                <ol>
+                    <li><a href="#"  data-ref="name">Name</a></li>
+                    <li><a href="#"  data-ref="uname">Username</a></li>
+                    <li><a href="#"  data-ref="email">Email</a></li>
+                    <li><a href="#"   data-ref="viewpswd">Password</a></li>
+                    <li><a href="#"  data-ref="phone">Phone</a></li>
+                </ol>
             </div>
+            
         )
     }
 }

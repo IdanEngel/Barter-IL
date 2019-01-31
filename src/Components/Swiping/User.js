@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom'
-import Axios from 'axios';
 import { observer, inject } from 'mobx-react'
 import Carousel from 'nuka-carousel';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -16,13 +15,13 @@ class User extends Component {
             val: false
         }
     }
-     
+
     likingUser = () => {
         this.props.likingUser(this.props.user._id)
 
 
     }
-    clearLS = () =>{
+    clearLS = () => {
         localStorage.clear()
         this.setState({
             val: !this.state.val
@@ -40,7 +39,14 @@ class User extends Component {
                             <div className="swipeUser-info" >
                                 <img src={user.imgURL}></img>
                                 <div className="text-user">
-                                    <h3>{user.name}</h3>
+                                    <h3>{user.name}
+                                    <br></br>
+                                    {user.location}
+                                    <br></br>
+                                    {user.age}
+                                    </h3>
+
+                                    <hr></hr>
                                     <h4>Skills:</h4>
                                     <div>{user.skills.map(skill => {
                                         return (
@@ -48,8 +54,6 @@ class User extends Component {
                                         )
                                     })}
                                     </div>
-                                    <div>{user.location}</div>
-                                    <div>{user.age}</div>
                                 </div>
                             </div>
                             <div className="reviews">

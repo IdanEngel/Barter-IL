@@ -21,17 +21,16 @@ class CurrentUser extends Component {
         let storage = localStorage.getItem(`username`)
         return (
             <div>
-            <NavBar />
-            <h1>Current User</h1>
-            <div className="currentUserPage">
-                <h2>Shoobert</h2>
-                <img src="https://media.licdn.com/dms/image/C5603AQFeD2Nyr-56vw/profile-displayphoto-shrink_200_200/0?e=1551312000&v=beta&t=3HpazftYEi9LINAIQa4kyWxj2kzz_qCpkExKtIjjpco"></img>
-             </div>
-             {storage ?
+                <NavBar />
+                <div className="currentUserPage">
+                    <span>Shobert</span>
+                    <img className="currentUser-img" src="https://media.licdn.com/dms/image/C5603AQFeD2Nyr-56vw/profile-displayphoto-shrink_200_200/0?e=1551312000&v=beta&t=3HpazftYEi9LINAIQa4kyWxj2kzz_qCpkExKtIjjpco"></img>
+                    {storage ?
                         null :
                         <Redirect to='/' />}
-                <button onClick={this.clearLS}>Logout</button>
-             </div>
+                    <button onClick={this.clearLS}>Logout</button>
+                </div>
+            </div>
         )
     }
 }
