@@ -5,10 +5,11 @@ import Axios from 'axios';
 class CurrentUser extends Component {
 
     render() {
+ 
         return (
             <div>
-                Current User
-           </div>
+                
+             </div>
 
         )
     }
