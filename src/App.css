@@ -96,6 +96,10 @@ img {
 .currentUserPage{
   text-align: center;
 }
+.chatImg{
+  height:400px;
+  align-content: center;
+}
 /* 
 button[aria-label="previous"],
 button[aria-label="next"] {
