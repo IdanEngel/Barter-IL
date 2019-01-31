@@ -1,7 +1,7 @@
 const express = require('express')
 const router = express.Router()
 const User = require('../Models/User')
-const matchesAndLikes = require('../Scripts/Logic')
+
 
 
 //get all users
@@ -11,17 +11,39 @@ router.get('/users', (req, res) => {
     });
 })
 
+router.get('/chats/:currentUserId', (req, res) => {
+    User.findOne({ _id: req.params.currentUserId }, function (error, user) {
+        console.log(user)
+        res.send(user)
+    })
+})
+
 router.post('/newuser', async function (req, res) {
     let newUser = await new User(req.body)
     newUser.save()
     res.send('new user saved to DB')
 })
 
+
 //sending the user details to the client
 router.get('/profile/:userName', (req, res) => {
     User.findOne({ username: req.params.userName }, function (error, user) {
         res.send(user)
     })
+})
+
+router.put('/sendmessages/:currentUserId', (req, res) => {
+    console.log(req.body.message)
+    User.findByIdAndUpdate(req.params.currentUserId, {
+        $push: {
+            messages: req.body.message
+        }
+    }, { new: true }, function(err, data){
+        console.log(data);
+    })
+    console.log(req.params.currentUserId);
+    
+    res.send(req.body.message)
 })
 
 router.put('/users/:currentUser', (req, res) => {
@@ -43,17 +65,17 @@ router.put('/users/:currentUser', (req, res) => {
 
         })
     }
-        updatLikes = (userOne, userTwo) => {
-            User.findByIdAndUpdate(userOne, {
-                $push: {
-                    likes: `${userTwo._id}`
-                }
+    updatLikes = (userOne, userTwo) => {
+        User.findByIdAndUpdate(userOne, {
+            $push: {
+                likes: `${userTwo._id}`
+            }
 
-            }, { new: true }, function (err, data) {
-            })
-        }
-    
-    
+        }, { new: true }, function (err, data) {
+        })
+    }
+
+
     ids = [req.params.currentUser, req.body.id]
     User.find({
         _id: {

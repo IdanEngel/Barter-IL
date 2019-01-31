@@ -9,6 +9,7 @@
     "likes": [],
     "matches": ["123", "34"],
     "reviews": [{"username": "idan500", "review": "The best knitter I know" }],
+    "messages": [],
     "location": "TLV",
     "age": "23",
     "skills": ["rock climbing", "dancing", "knitting"],
@@ -25,15 +26,14 @@
     "likes": [],
     "matches": ["123", "500"],
     "reviews": [{"username": "abs200", "review": "The best dancer in TLV" }],
+    "messages": [],
     "location": "TLV",
     "age": "23",
     "skills": ["rock climbing", "dancing", "knitting"],
     "imgURL": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSQmr5tUnduZEcuu8zRkOyKJRAQx6RA8xlJJBpmumSUjBw3nhiSBg"
   },
+  
   {
-    "_id": {
-      "$oid": "5c506b6de0c7355250db1799"
-    },
     "name": "Shoobert",
     "lastName": "Hunt",
     "username": "shoobydoo",
@@ -43,15 +43,13 @@
     "likes": [],
     "matches": ["3434534", "123"],
     "reviews": [{"username": "abs200", "review": "The best dancer in TLV" }],
+    "messages": [],
     "location": "TLV",
     "age": "23",
     "skills": ["rock climbing", "dancing", "knitting"],
     "imgURL": "https://media.licdn.com/dms/image/C5603AQFeD2Nyr-56vw/profile-displayphoto-shrink_200_200/0?e=1551312000&v=beta&t=3HpazftYEi9LINAIQa4kyWxj2kzz_qCpkExKtIjjpco"
   },
   {
-    "_id": {
-      "$oid": "5c506b6de0c7355250db179a"
-    },
     "name": "John",
     "lastName": "Smith",
     "username": "smithy1948",
@@ -61,6 +59,7 @@
     "likes": [],
     "matches": ["435", "123"],
     "reviews": [{"username": "abs200", "review": "The best dancer in TLV" }],
+    "messages": [],
     "location": "TLV",
     "age": "23",
     "skills": ["horseback riding", "running", "olympic weightlifting"], 
