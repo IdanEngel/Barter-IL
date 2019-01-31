@@ -8,6 +8,7 @@ import CurrentUser from './Components/UserPage/CurrentUser';
 import Chats from './Components/Chats/Chats';
 import { faUser, faComment, faUserFriends, faHandHoldingHeart, faHeart, faTimesCircle} from '@fortawesome/free-solid-svg-icons'
 import { library } from '@fortawesome/fontawesome-svg-core'
+import Chatlist from './Components/Chats/ChatList';
 library.add(faUser, faComment, faUserFriends, faHandHoldingHeart, faHeart, faTimesCircle)
 
 
@@ -23,6 +24,8 @@ class App extends Component {
           <Route path='/currentUserPage' exact component={CurrentUser} />
           <Route path='/swiping' exact component={Users} />
           <Route path='/chats' exact component={Chats} />
+          <Route path="/chatlist" exact Component={Chatlist} />
+
           {/* <Deck /> */}
 
         </div>
