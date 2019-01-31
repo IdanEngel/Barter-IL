@@ -9,6 +9,7 @@
     "likes": [],
     "matches": ["123", "34"],
     "reviews": [{"username": "idan500", "review": "The best knitter I know" }],
+    "messages": [],
     "location": "TLV",
     "age": "23",
     "skills": ["rock climbing", "dancing", "knitting"],
@@ -25,11 +26,13 @@
     "likes": [],
     "matches": ["123", "500"],
     "reviews": [{"username": "abs200", "review": "The best dancer in TLV" }],
+    "messages": [],
     "location": "TLV",
     "age": "23",
     "skills": ["rock climbing", "dancing", "knitting"],
     "imgURL": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSQmr5tUnduZEcuu8zRkOyKJRAQx6RA8xlJJBpmumSUjBw3nhiSBg"
   },
+  
   {
     "name": "Shoobert",
     "lastName": "Hunt",
@@ -40,6 +43,7 @@
     "likes": [],
     "matches": ["3434534", "123"],
     "reviews": [{"username": "abs200", "review": "The best dancer in TLV" }],
+    "messages": [],
     "location": "TLV",
     "age": "23",
     "skills": ["rock climbing", "dancing", "knitting"],
@@ -55,6 +59,7 @@
     "likes": [],
     "matches": ["435", "123"],
     "reviews": [{"username": "abs200", "review": "The best dancer in TLV" }],
+    "messages": [],
     "location": "TLV",
     "age": "23",
     "skills": ["horseback riding", "running", "olympic weightlifting"], 

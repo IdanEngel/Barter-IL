@@ -37,4 +37,3 @@ app.listen(8000, function () {
     console.log(`Yo yo i'm running here!`)
 })
 
-// module.exports = router
