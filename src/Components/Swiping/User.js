@@ -3,34 +3,20 @@ import { Redirect } from 'react-router-dom'
 import Axios from 'axios';
 
 class User extends Component {
-    constructor() {
-        super()
-        this.state = {
-            val: false
-        }
-    }
-    likingUser = (event) =>{
+
+    likingUser = (event) => {
         this.props.likingUser(event.target.value)
-        
-    }
-    clearLS = () =>{
-        localStorage.clear()
-        this.setState({
-            val: !this.state.val
-        })
 
     }
+
+
     render() {
         const user = this.props.user
-        let storage = localStorage.getItem(`username`)
         return (
             <div>
-                 {storage ?
-                        null :
-                        <Redirect to='/' />}
-                <button onClick={this.clearLS}>Logout</button>
+
                 <div className="user-info">
-                  <img src={user.imgURL}></img>
+                    <img src={user.imgURL}></img>
                     <div>{user.name}</div>
                     <div>{user.age}</div>
                     <div>{user.location}</div>
@@ -39,10 +25,10 @@ class User extends Component {
                             <li>{skill}</li>
                         )
                     })}
-            
+
                     </div>
-                <button onClick={this.likingUser}>dislike</button>
-                <button onClick={this.likingUser} value={user._id}>like</button> <br/>
+                    <button onClick={this.likingUser}>dislike</button>
+                    <button onClick={this.likingUser} value={user._id}>like</button> <br />
 
 
                 </div>
