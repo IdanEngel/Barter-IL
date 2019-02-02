@@ -32,7 +32,7 @@ body {
 }
 
 #root {
-  background: salmon;
+  background: #FEA47F;
   position: fixed;
   overflow: hidden;
   width: 100%;
@@ -127,7 +127,7 @@ h2 {
 }
 .currentUser-img{
   border-radius: 50%;
-  height: 40vh;
+  height: 30vh;
 }
 .signup-button{
   width:40%;
@@ -135,6 +135,12 @@ h2 {
   justify-self: center;
 
 }
+.chat-box{
+  background-color: green;
+  width:50vw;
+  height: 50vh;
+}
+
 /* 
 button[aria-label="previous"],
 button[aria-label="next"] {

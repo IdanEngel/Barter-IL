@@ -6,6 +6,8 @@ const app = express()
 const routes = require('./server/Routes/routes')
 const User = require('./server/Models/User')
 const dummyData = require('./src/dummyData')
+const cors = require('cors')
+// const Chatkit = require()
 
 app.use(express.static(path.join(__dirname, 'src')))
 app.use(express.static(path.join(__dirname, 'node_modules')))

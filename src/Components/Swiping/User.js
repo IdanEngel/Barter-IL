@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Redirect } from 'react-router-dom'
 import { observer, inject } from 'mobx-react'
 import Carousel from 'nuka-carousel';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -37,7 +36,7 @@ class User extends Component {
                     <div >
                         <Carousel>
                             <div className="swipeUser-info" >
-                                <img src={user.imgURL}></img>
+                                <img src={user.imgURL} alt="swipingUser-img"></img>
                                 <div className="text-user">
                                     <h3>{user.name}
                                     <br></br>

@@ -1,24 +1,35 @@
+//this component will render all the chats. A parent of chatlist 
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
-import { Route } from 'react-router-dom';
-import Chatlist from './ChatList';
 import NavBar from '../NavBar';
+import Chatlist from './Matches';
+import { observer, inject } from 'mobx-react';
+import './Chats.css'
+import Matches from './Matches';
 
+@inject('UserData')
+@observer
 class Chats extends Component {
-  // constructor(){
-  //   this.state = {
-  //     currentUser: "",
-  //     message: []
-  //   }
-  // }
+
+  componentDidMount = () => {
+    this.props.UserData.getUsers()
+  }
   render() {
     return (
-      <div>
-        <NavBar />
       <div className="chats">
-        <h1>Chats</h1>
-        <img className="chatImg" src="https://static1.squarespace.com/static/58297336c534a550aa00672c/t/5b0ff738f950b73249f9bf38/1527773020353/girl+with+empty+tinder+profile"></img>
-      </div>
+        <NavBar />
+        <div className="chats-header">New Matches</div>
+        <div className="carousel">
+          {this.props.UserData.users.map(user => {
+            return (
+              <Matches user={user} />
+            )
+          })}
+        </div>
+        <hr></hr>
+        <div className="chats-header">Messages</div>
+        <div className="message-list">
+
+        </div>
       </div>
     );
   }

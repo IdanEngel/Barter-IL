@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { Link, Route } from 'react-router-dom'
-import Users from '../Swiping/Users';
+import { Link } from 'react-router-dom'
+// import Users from '../Swiping/Users';
 import { Redirect } from 'react-router-dom'
 import { observer, inject } from 'mobx-react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
