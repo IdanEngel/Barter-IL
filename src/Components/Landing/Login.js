@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import { Link, Route } from 'react-router-dom'
-import Users from '../Swiping/Users';
+import { Link } from 'react-router-dom'
+// import Users from '../Swiping/Users';
 import { Redirect } from 'react-router-dom'
 import { observer, inject } from 'mobx-react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 @inject('userLogin')
 @inject('UserData')
@@ -24,20 +25,10 @@ class Login extends Component {
         if (userName) {
             this.findAndRender(userName)
         }
-        // else {
-        //     renderer.renderLogin()
-        // }
     }
-
-    // $(`body`).on(`click`, `#loginBtn`, async function () {
-    //     // console.log(`working btn`)
-    //     let userName = $(`#username`).val()
-    //     await findAndRender(userName)
-    // })
     findAndRender = async () => {
         let username = this.props.userLogin.username
         let password = this.props.userLogin.password
-        let storage = localStorage.getItem(`username`)
         await this.props.UserData.getUsers()
         let currentUser = this.props.UserData.users
             .find(user => user.username === username)
@@ -51,7 +42,7 @@ class Login extends Component {
 
         else {
             localStorage.clear()
-            alert('your username/password is incorrect, please try agaain')
+            alert('Your username or password is incorrect, please try agaain')
         }
     }
 
@@ -60,21 +51,23 @@ class Login extends Component {
         let storage = localStorage.getItem(`username`)
         return (
             <div>
-
-                <h1>Barter IL</h1>
+                <div className="header">
+                <h1>Barter IL <FontAwesomeIcon icon="handshake"></FontAwesomeIcon> </h1>
+                
+                </div>
                 <div className="login-box">
                     <input placeholder="username" type="text" name="username"
                         onChange={this.inputHandler} />
                     <input placeholder="password" type="password" name="password"
                         onChange={this.inputHandler} />
-                    <button onClick={this.findAndRender}>Login</button>
+                    <button className="signup-button" onClick={this.findAndRender}>Login</button>
                     {storage ?
                         <Redirect to='/swiping' /> :
                         null}
-                </div>
                 <Link to="/signup">
-                    <div>click here to signup</div>
+                    <div >click here to signup</div>
                 </Link>
+                </div>
 
             </div>
         )
