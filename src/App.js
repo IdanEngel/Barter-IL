@@ -25,7 +25,7 @@ class App extends Component {
           {/* <ChatBox /> */}
 
           <Route path="/" exact component={Login} />
-          <Route path='/currentUserPage' exact component={CurrentUser} />
+          <Route path='/currentUserPage/:username' exact component={CurrentUser} />
           <Route path='/swiping' exact component={Users} />
           <Route path='/chats' exact component={Chats} />
           <Route path="/chatlist" exact Component={Chatlist} />

@@ -5,9 +5,11 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 import UserData from '../src/Store/UserData'
 import userLogin from '../src/Store/userLogin'
+import currentUserData from '../src/Store/CurrentUserData'
+
 import { Provider } from 'mobx-react';
 
-const stores = { UserData, userLogin}
+const stores = { UserData, userLogin, currentUserData}
 
 
 ReactDOM.render(<Provider {...stores}  >
