@@ -9,11 +9,16 @@ import ChatBox from './ChatBox';
 @inject('UserData','userLogin')
 @observer
 class Chats extends Component {
-
+  passRoute = () => {
+    let currentPage = this.props.match.url
+    this.props.UserData.getCurrentPage(currentPage)
+  }
   componentDidMount = () => {
     this.props.UserData.getUsers()
   }
   render() {
+    console.log(this.props.match)
+    this.passRoute()
     return (
       <div className="chats">
       <ChatBox />

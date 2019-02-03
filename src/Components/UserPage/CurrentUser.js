@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom'
 import NavBar from '../NavBar';
-import Axios from 'axios';
 import { observer, inject } from 'mobx-react';
 
-@inject('currentUserData')
+@inject('userLogin', 'UserData', 'currentUserData')
 @observer
 class CurrentUser extends Component {
     constructor() {
@@ -19,6 +18,10 @@ class CurrentUser extends Component {
         this.props.currentUserData.getUser(storageUser)
     }
 
+    passRoute = () => {
+        let currentPage = this.props.match.path
+        this.props.UserData.getCurrentPage(currentPage)
+      }
     clearLS = () => {
         localStorage.clear()
         this.setState({
@@ -27,6 +30,7 @@ class CurrentUser extends Component {
     }
     render() {
         let storage = localStorage.getItem(`username`)
+        this.passRoute()
         return (
             <div>
                 <NavBar />
