@@ -36,4 +36,4 @@ class Chatlist extends Component{
     }
 }
 
-export default ChartList
+export default ChatList
