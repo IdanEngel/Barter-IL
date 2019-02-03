@@ -1,7 +1,13 @@
 const express = require('express')
 const router = express.Router()
 const User = require('../Models/User')
+const Chatkit = require('@pusher/chatkit-server');
 
+
+const chatkit = new Chatkit.default({
+    instanceLocator: 'v1:us1:5be2ab98-48ee-41f2-a814-0adeb5e65142',
+    key: 'f64ccf1c-2215-44f5-a5b0-38b064e4e6f9:Is7KDpsNvfg8uqnB7xVMIJ4dDbgXupHooKZkhMEeaKw='
+})
 
 
 //get all users
@@ -101,6 +107,25 @@ router.put('/users/:currentUser', (req, res) => {
 })
     res.end()
 })
+
+router.post('/user',(req,res)=>{
+    const {username} = req.body
+    chatkit
+        .createUser({
+            name: username,
+            id: username
+        })
+        .then(()=> res.sendStatus(201))
+        .catch(error =>{
+            if(error.error_type === 'service/chatkit/user_already_exists'){
+                res.sendStatus(200)
+            }
+            else{
+                res.status(error.statusCode).json(error)
+            }
+        })
+})
+
 
 
 

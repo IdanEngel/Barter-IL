@@ -7,6 +7,7 @@ class login {
     @action inputHandler = (name, val) => {
         this[name] = val
     }
+    
   
 }
 
