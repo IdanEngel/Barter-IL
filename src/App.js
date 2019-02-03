@@ -12,6 +12,7 @@ import Chatlist from './Components/Chats/Matches';
 import Signup from './Components/Landing/Signup';
 import ChatBox from './Components/Chats/ChatBox';
 import User from './Components/Swiping/User';
+import ChatWindow from './Components/Chats/ChatWindow';
 library.add(faUser, faComment, faUserFriends, faHandHoldingHeart, faHeart, faTimesCircle,faHandshake)
 
 
@@ -34,8 +35,7 @@ class App extends Component {
           {/* <Route path='/chats' exact component={Chats} /> */}
           <Route path="/chatlist" exact component={Chatlist} />
           <Route path="/signup" exact component={Signup}/>
-          <Route path="/chatslists/chatBox" exact component={ChatBox} />
-
+          <Route path="/chatslists/chatWindow/:username" render={({match})=> <ChatWindow match={match} />}/>
           {/* <Deck /> */}
 
         </div>
