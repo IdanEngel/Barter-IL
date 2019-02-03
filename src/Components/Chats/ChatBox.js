@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { observer, inject } from 'mobx-react'
 import Axios from 'axios';
-
+import ChatWindow from './ChatWindow'
 
 @inject('userLogin')
 @observer
@@ -9,7 +9,7 @@ class ChatBox extends Component {
     constructor() {
         super()
         this.state = {
-            username: 'absss'
+            currentScreen: ''
         }
     }
     sendUserName = () => {
@@ -23,7 +23,7 @@ class ChatBox extends Component {
                 }
             }
         ).then(response => {
-            console.log(response)
+            console.log('sucess')
         }).catch(error => {
             console.error(error)
         })
