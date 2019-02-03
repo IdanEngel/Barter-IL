@@ -1,20 +1,36 @@
+//this component will render all the chats. A parent of chatlist 
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
-import { Route} from 'react-router-dom';
-import './ChatList';
+import NavBar from '../NavBar';
+import { observer, inject } from 'mobx-react';
+import './Chats.css'
+import Matches from './Matches';
+import ChatBox from './ChatBox';
 
+@inject('UserData','userLogin')
+@observer
 class Chats extends Component {
-  constructor(){
-    this.state = {
-      currentUser: "",
-      message: []
-    }
+
+  componentDidMount = () => {
+    this.props.UserData.getUsers()
   }
   render() {
     return (
-    <div className="chats">
-  <Route path="/chatlist" exact Component={ChatList} />
-    </div>
+      <div className="chats">
+      <ChatBox />
+        <NavBar />
+        <div className="chats-header">New Matches</div>
+        <div className="carousel">
+          {this.props.UserData.users.map(user => {
+            return (
+              <Matches user={user} />
+            )
+          })}
+        </div>
+        <hr></hr>
+        <div className="chats-header">Messages</div>
+        <div className="message-list">
+        </div>
+      </div>
     );
   }
 }

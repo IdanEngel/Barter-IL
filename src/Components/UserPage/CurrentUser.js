@@ -1,31 +1,35 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom'
-import Axios from 'axios';
+import { Redirect } from 'react-router-dom'
+import NavBar from '../NavBar';
 
 class CurrentUser extends Component {
+    constructor() {
+        super()
+        this.state = {
+            val: false
+        }
+    }
 
+    clearLS = () => {
+        localStorage.clear()
+        this.setState({
+            val: !this.state.val
+        })
+    }
     render() {
- 
+        let storage = localStorage.getItem(`username`)
         return (
             <div>
-                {/* <div className="swipeUser-info" >
-                            <img src={user.imgURL}></img>
-                            <div>{user.name}</div>
-                            <div>{user.skills.map(skill => {
-                                return (
-                                    <li>{skill}</li>
-                                )
-                            })}
-                            </div>
-                            <div>{user.location}</div>
-                            <div>{user.age}</div>
-                        </div>
-                        <div className="reviews">
-                            insert reviews here for this specific user
-                            
-                         </div>          */}
-                           </div>
-
+                <NavBar />
+                <div className="currentUserPage">
+                    <span>Shobert</span>
+                    <img className="currentUser-img" src="https://media.licdn.com/dms/image/C5603AQFeD2Nyr-56vw/profile-displayphoto-shrink_200_200/0?e=1551312000&v=beta&t=3HpazftYEi9LINAIQa4kyWxj2kzz_qCpkExKtIjjpco" alt="currentUser-img"></img>
+                    {storage ?
+                        null :
+                        <Redirect to='/' />}
+                    <button onClick={this.clearLS}>Logout</button>
+                </div>
+            </div>
         )
     }
 }

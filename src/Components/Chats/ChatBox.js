@@ -1,31 +1,42 @@
 import React, { Component } from 'react';
-import { Link, Route } from 'react-router-dom';
-import axios from 'axios';
+import { observer, inject } from 'mobx-react'
+import Axios from 'axios';
 
-class ChatBox extends Component{
-    constructor(){
-        this.state ={
-            message: ''
+
+@inject('userLogin')
+@observer
+class ChatBox extends Component {
+    constructor() {
+        super()
+        this.state = {
+            username: 'absss'
         }
     }
-
-    setMessage = (e) =>{
-        const newMessage =  e.target.value
-        this.setState=({
-            message: newMessage
+    sendUserName = () => {
+        // let username = this.props.userLogin.username
+        Axios.post('http://localhost:8000/user', {
+            username: localStorage.getItem(`username`)
+        },
+            {
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            }
+        ).then(response => {
+            console.log(response)
+        }).catch(error => {
+            console.error(error)
         })
-
-    sendMessage(){
-            axios.put()
-        }
     }
-    render(){
-        return(
-            <div className="chat-box">
-            <Messages messages={this.props.user.messages} />
-            <input id="message-input" placeholder="Write your text here" onChange={this.setMessage}></input>
-            <button id="send-button" onClick={this.sendMessage}></button>
+    render() {
+        // this.sendUserName()
+        return (
+            <div>
+                <div>hello</div>
+                <button onClick={this.sendUserName}>click</button>
             </div>
         )
     }
 }
+export default ChatBox
+

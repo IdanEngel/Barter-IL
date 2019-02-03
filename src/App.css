@@ -11,6 +11,10 @@
 
 * {
   box-sizing: border-box;
+  text-decoration: none;
+  text-align: center;
+
+
 }
 
 html,
@@ -21,13 +25,14 @@ body {
   height: 100%;
   width: 100%;
   user-select: none;
-  font-family: Raleway, sans-serif;
-  position: fixed;
+  font-family: 'Noto Serif SC', serif;
+    position: fixed;
   overflow: hidden;
+  font-family: 'Noto Serif SC', serif;
 }
 
 #root {
-  background: salmon;
+  background: #FEA47F;
   position: fixed;
   overflow: hidden;
   width: 100%;
@@ -36,7 +41,12 @@ body {
       39 39,
     auto;
 }
-
+.login-box{
+  grid-gap:2vh;
+}
+.login-box input {
+  border-radius: 5px;
+}
 #root > div {
   position: absolute;
   width: 100vw;
@@ -64,12 +74,79 @@ body {
 }
 
 img {
-  height: 266px;
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
+  height: 220px;
+  border-radius: 5%;
+  margin-top: 5px;
 }
-.swipeUser-info{
+.swipeUser-info {
+  display: grid;
+  justify-content: center;
+}
+.reviews{
+  text-align: center;
+
+}
+
+.text-user {
+    text-align: center;
+}
+.dislikeButton{
+  float: left;
+  font-size: 22px;
+
+}
+.likeButton{
+  float: right;
+  font-size: 22px;
+  color: red
+
+}
+.currentUserPage{
+  justify-items: center;
+  text-align: center;
+  display: grid;
+  grid-auto-columns: auto;
+  grid-gap: 10%;
+  align-items: initial;
+}
+.chatImg{
+  height:300px;
   align-content: center;
+}
+h1{
+  text-align: center;
+}
+
+.login-box{
+  display: grid;
+  grid-auto-columns: auto;
+}
+h2 {
+  display: inline-block;
+  margin-right: 10px;
+}
+.currentUser-img{
+  border-radius: 50%;
+  height: 30vh;
+}
+.signup-button{
+  width:40%;
+  border-radius: 20%;
+  justify-self: center;
+
+}
+.chat-box{
+  background-color: green;
+  width:50vw;
+  height: 50vh;
+}
+.reviews{
+  display: grid;
+  grid-template-columns: .5fr 1fr;
+}
+.review-text{
+  text-align: left;
+
 }
 /* 
 button[aria-label="previous"],
