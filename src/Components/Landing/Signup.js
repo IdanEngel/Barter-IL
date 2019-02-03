@@ -1,6 +1,8 @@
-
 import React, { Component } from 'react';
+import { observer, inject } from 'mobx-react';
 
+@inject('userLogin', 'UserData')
+@observer
 class Signup extends Component {
     constructor(props) {
         super(props);
@@ -8,9 +10,14 @@ class Signup extends Component {
             username: "",
         }
     }
+    passRoute = () => {
+        let currentPage = this.props.match.url
+        this.props.UserData.getCurrentPage(currentPage)
+      }
     render() {
+        this.passRoute()
         return (
-            <div class="signup">
+            <div className="signup">
                 <div className="add-inputs">
                     <label for="FN">First Name: </label>
                     <input id="FN" type="text" placeholder="First Name" name='firstname' />

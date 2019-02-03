@@ -11,6 +11,7 @@ import { library } from '@fortawesome/fontawesome-svg-core'
 import Chatlist from './Components/Chats/Matches';
 import Signup from './Components/Landing/Signup';
 import ChatBox from './Components/Chats/ChatBox';
+import User from './Components/Swiping/User';
 library.add(faUser, faComment, faUserFriends, faHandHoldingHeart, faHeart, faTimesCircle,faHandshake)
 
 
@@ -21,16 +22,19 @@ class App extends Component {
     return (
       <Router>
         <div>
-          {/* <NavBar /> */}
-          {/* <ChatBox /> */}
+        
+          <Route path='/' exact render={({match})=> <Login match={match} />}/>
+          <Route path='signup' exact render={({match})=> <Signup match={match} />}/>
 
-          <Route path="/" exact component={Login} />
-          <Route path='/currentUserPage' exact component={CurrentUser} />
-          <Route path='/swiping' exact component={Users} />
-          <Route path='/chats' exact component={Chats} />
-          <Route path="/chatlist" exact Component={Chatlist} />
-          <Route path="/signup" exact Component={Signup}/>
-          <Route path="/chatslists/chatBox" exact Component={ChatBox} />
+          {/* <Route path='/currentUserPage' exact component={CurrentUser} /> */}
+          <Route path='/currentUserPage/:username' exact render={({match})=> <CurrentUser match={match} />}/>
+          <Route path='/swiping' exact render={({match})=> <Users match={match} />}/>
+          <Route path='/chats' exact render={({match})=> <Chats match={match} />}/>
+
+          {/* <Route path='/chats' exact component={Chats} /> */}
+          <Route path="/chatlist" exact component={Chatlist} />
+          <Route path="/signup" exact component={Signup}/>
+          <Route path="/chatslists/chatBox" exact component={ChatBox} />
 
           {/* <Deck /> */}
 
