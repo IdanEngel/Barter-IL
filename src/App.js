@@ -23,6 +23,7 @@ class App extends Component {
         <div>
           {/* <NavBar /> */}
           {/* <ChatBox /> */}
+
           <Route path="/" exact component={Login} />
           <Route path='/currentUserPage' exact component={CurrentUser} />
           <Route path='/swiping' exact component={Users} />

@@ -29,7 +29,6 @@ class Login extends Component {
     findAndRender = async () => {
         let username = this.props.userLogin.username
         let password = this.props.userLogin.password
-        let storage = localStorage.getItem(`username`)
         await this.props.UserData.getUsers()
         let currentUser = this.props.UserData.users
             .find(user => user.username === username)

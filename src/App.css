@@ -140,7 +140,14 @@ h2 {
   width:50vw;
   height: 50vh;
 }
+.reviews{
+  display: grid;
+  grid-template-columns: .5fr 1fr;
+}
+.review-text{
+  text-align: left;
 
+}
 /* 
 button[aria-label="previous"],
 button[aria-label="next"] {

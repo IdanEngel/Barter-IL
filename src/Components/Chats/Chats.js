@@ -1,12 +1,12 @@
 //this component will render all the chats. A parent of chatlist 
 import React, { Component } from 'react';
 import NavBar from '../NavBar';
-import Chatlist from './Matches';
 import { observer, inject } from 'mobx-react';
 import './Chats.css'
 import Matches from './Matches';
+import ChatBox from './ChatBox';
 
-@inject('UserData')
+@inject('UserData','userLogin')
 @observer
 class Chats extends Component {
 
@@ -16,6 +16,7 @@ class Chats extends Component {
   render() {
     return (
       <div className="chats">
+      <ChatBox />
         <NavBar />
         <div className="chats-header">New Matches</div>
         <div className="carousel">
@@ -28,7 +29,6 @@ class Chats extends Component {
         <hr></hr>
         <div className="chats-header">Messages</div>
         <div className="message-list">
-
         </div>
       </div>
     );

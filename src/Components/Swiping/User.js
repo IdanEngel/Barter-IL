@@ -39,10 +39,10 @@ class User extends Component {
                                 <img src={user.imgURL} alt="swipingUser-img"></img>
                                 <div className="text-user">
                                     <h3>{user.name}
-                                    <br></br>
-                                    {user.location}
-                                    <br></br>
-                                    {user.age}
+                                        <br></br>
+                                        {user.location}
+                                        <br></br>
+                                        {user.age}
                                     </h3>
 
                                     <hr></hr>
@@ -55,9 +55,19 @@ class User extends Component {
                                     </div>
                                 </div>
                             </div>
-                            <div className="reviews">
+                            <div>
                                 <h1>Reviews</h1>
-                                <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p>
+                                <div className="review-container">
+                                    {user.reviews.map(review => {
+                                        return (
+                                        <div className="reviews">
+                                            <div className="review-text">{review.username}:</div>
+                                            <div className="review-text">{review.review}</div>
+                                        </div>
+                                  )
+                                    })}
+                                </div>
+                                {/* <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p> */}
                             </div>
                         </Carousel>
                     </div>
