@@ -4,7 +4,6 @@ import Carousel from 'nuka-carousel';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 
-
 @inject('UserData')
 @observer
 class User extends Component {
@@ -14,21 +13,17 @@ class User extends Component {
             val: false
         }
     }
-
     likingUser = () => {
         this.props.likingUser(this.props.user._id)
-
     }
     clearLS = () => {
         localStorage.clear()
         this.setState({
             val: !this.state.val
         })
-
     }
     render() {
         const user = this.props.user
-
         return (
             <div>
                 <div className="swipe-card">
@@ -66,7 +61,6 @@ class User extends Component {
                                   )
                                     })}
                                 </div>
-                                {/* <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p> */}
                             </div>
                         </Carousel>
                     </div>

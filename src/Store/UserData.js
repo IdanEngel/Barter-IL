@@ -1,6 +1,5 @@
 import { observable, action, computed } from 'mobx'
 import Axios from 'axios';
-import { async } from 'q';
 
 
 class userFromDb {

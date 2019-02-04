@@ -20,8 +20,9 @@ class Users extends Component {
 
     likingUser = (likedUserId) => {
         console.log("here with likeduserid " + likedUserId)
-        //insert currentUserId
-        Axios.put(`http://localhost:8000/users/5c51c165c1ff0effc2683694`, {
+        let userId = localStorage.getItem(`id`)
+        console.log(userId)
+        Axios.put(`http://localhost:8000/users/${userId}`, {
             id: likedUserId
         })
         console.log(`this is the likedID: ${likedUserId}`)

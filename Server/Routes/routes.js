@@ -9,6 +9,11 @@ const chatkit = new Chatkit.default({
     key: 'f64ccf1c-2215-44f5-a5b0-38b064e4e6f9:Is7KDpsNvfg8uqnB7xVMIJ4dDbgXupHooKZkhMEeaKw='
 })
 
+//authenticates the chatroom
+router.post('/authenticate', (req,res)=>{
+    const {grant_type} = req.body
+    res.json(chatkit.authenticate({grant_type}, req.query.user_id))
+})
 
 //get all users
 router.get('/users', (req, res) => {

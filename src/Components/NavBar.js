@@ -13,7 +13,7 @@ class NavBar extends Component {
   render() {
     return (
     <div className="nav-bar">
-       <Link to='/currentUserPage/:username' onClick={this.passRoute}> <FontAwesomeIcon icon="user-friends"></FontAwesomeIcon> </Link>
+       <Link to={"/currentUserPage/" + localStorage.getItem(`username`)} onClick={this.passRoute}> <FontAwesomeIcon icon="user-friends"></FontAwesomeIcon> </Link>
        <Link to='/swiping' ><FontAwesomeIcon icon="hand-holding-heart"></FontAwesomeIcon> </Link>
        <Link to='/chats' > <FontAwesomeIcon icon="comment"></FontAwesomeIcon>  </Link>
 

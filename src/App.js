@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom'
 import './App.css';
+import Axios from 'axios';
 import { observer } from 'mobx-react'
 import Login from './Components/Landing/Login';
 import Users from './Components/Swiping/Users';
@@ -10,7 +11,6 @@ import { faUser, faComment, faUserFriends, faHandHoldingHeart, faHeart, faTimesC
 import { library } from '@fortawesome/fontawesome-svg-core'
 import Chatlist from './Components/Chats/Matches';
 import Signup from './Components/Landing/Signup';
-import ChatBox from './Components/Chats/ChatBox';
 import User from './Components/Swiping/User';
 import ChatWindow from './Components/Chats/ChatWindow';
 library.add(faUser, faComment, faUserFriends, faHandHoldingHeart, faHeart, faTimesCircle,faHandshake)
@@ -19,11 +19,11 @@ library.add(faUser, faComment, faUserFriends, faHandHoldingHeart, faHeart, faTim
 
 @observer
 class App extends Component {
+
   render() {
     return (
       <Router>
         <div>
-        
           <Route path='/' exact render={({match})=> <Login match={match} />}/>
           <Route path='signup' exact render={({match})=> <Signup match={match} />}/>
 
@@ -35,7 +35,7 @@ class App extends Component {
           {/* <Route path='/chats' exact component={Chats} /> */}
           <Route path="/chatlist" exact component={Chatlist} />
           <Route path="/signup" exact component={Signup}/>
-          <Route path="/chatslists/chatWindow/:username" render={({match})=> <ChatWindow match={match} />}/>
+          <Route path="/chatslists/chatWindow" render={({match})=> <ChatWindow match={match} />}/>
           {/* <Deck /> */}
 
         </div>

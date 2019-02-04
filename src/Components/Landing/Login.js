@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom'
 // import Users from '../Swiping/Users';
+import Axios from 'axios';
 import { Redirect } from 'react-router-dom'
 import { observer, inject } from 'mobx-react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -14,6 +15,25 @@ class Login extends Component {
             val: false
         }
     }
+    // sendUserName = async () => {
+    //     // let username = this.props.userLogin.username
+    //   await  Axios.post('http://localhost:8000/user', {
+    //         username: localStorage.getItem(`username`)
+    //     },
+    //         {
+    //             headers: {
+    //                 'Content-Type': 'application/json'
+    //             }
+    //         }
+    //     ).then(response => {
+    //         console.log('sucess')
+    //     }).catch(error => {
+    //         console.error(error)
+    //     })
+    // }
+    // componentDidMount(){
+    //     this.sendUserName()
+    // }
     passRoute = () => {
         this.props.UserData.getCurrentPage('/loginPage')
       }
@@ -35,6 +55,7 @@ class Login extends Component {
             .find(user => user.username === username)
         if (currentUser && currentUser.password === password) {
             await localStorage.setItem(`username`, username)
+            await localStorage.setItem(`id`, currentUser._id)
             this.setState({
                 val: !this.state.val
             })
