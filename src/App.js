@@ -30,7 +30,7 @@ class App extends Component {
           <Route path='/currentUserPage/:username' exact render={({match})=> <CurrentUser match={match} />}/>
           <Route path='/swiping' exact render={({match})=> <Users match={match} />}/>
           <Route path='/chats' exact render={({match})=> <Chats match={match} />}/>
-
+          <Route path='/chats/chatbox/:username' exact render={({match})=> <ChatBox match={match} />}/>
           {/* <Route path='/chats' exact component={Chats} /> */}
           <Route path="/chatlist" exact component={Chatlist} />
           <Route path="/signup" exact component={Signup}/>
