@@ -26,7 +26,6 @@ class App extends Component {
         
           <Route path='/' exact render={({match})=> <Login match={match} />}/>
           <Route path='signup' exact render={({match})=> <Signup match={match} />}/>
-
           {/* <Route path='/currentUserPage' exact component={CurrentUser} /> */}
           <Route path='/currentUserPage/:username' exact render={({match})=> <CurrentUser match={match} />}/>
           <Route path='/swiping' exact render={({match})=> <Users match={match} />}/>
