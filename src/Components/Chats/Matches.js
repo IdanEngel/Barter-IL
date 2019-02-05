@@ -32,7 +32,7 @@ class Matches extends Component {
     }
     render() {
         let matchedUsers = this.state.matchedUsers
-        // console.log(this.props.userLogin.currentUserId)
+        console.log(this.props.userLogin.currentUserId)
         return (
             <div className="singleMatch-imgDiv">
                 {matchedUsers.map(match=>{

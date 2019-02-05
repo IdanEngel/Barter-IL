@@ -18,7 +18,7 @@ router.get('/users', (req, res) => {
 
 router.get('/chats/:currentUserId', (req, res) => {
     User.findOne({ _id: req.params.currentUserId }, function(error, user) {
-        console.log(user)
+        // console.log(user)
         res.send(user)
     })
 })
