@@ -32,7 +32,6 @@ class Login extends Component {
         if (currentUser && currentUser.password === password) {
             await localStorage.setItem(`username`, username)
             this.forceUpdate()
-
         }
 
         else {
@@ -40,7 +39,6 @@ class Login extends Component {
             alert('Your username or password is incorrect, please try agaain')
         }
     }
-
 
     render() {
         let storage = localStorage.getItem(`username`)
@@ -59,7 +57,7 @@ class Login extends Component {
                         onChange={this.inputHandler} />
                     <button className="signup-button" onClick={this.findAndRender}>Login</button>
                     {storage ?
-                        <Redirect to={"/currentUserPage/" + username } /> :
+                        <Redirect to={`/currentUserPage/:currentUsername` } /> :
                         null}
                 <Link to="/signup">
                     <div >click here to signup</div>
