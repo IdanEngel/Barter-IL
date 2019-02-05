@@ -41,7 +41,7 @@ router.post('/newuser', async function (req, res, next) {
 
 
 //sending the user details to the client
-router.get('/profile/:userName', (req, res) => {
+router.get('/currentUserPage/:userName', (req, res) => {
     User.findOne({ username: req.params.userName }, function (error, user) {
         res.send(user)
     })
@@ -61,10 +61,10 @@ router.put('/sendmessages/:currentUserId', (req, res) => {
     res.send(req.body.message)
 })
 
-updateLikes = (loggenInUser, ) => {
+updateLikes = (loggenInUser, likedUser) => {
     User.findByIdAndUpdate(loggenInUser, {
         $push: {
-            likes: ._id
+            likes: likedUser._id
         }
 
     }, { new: true }, function (err, data) {
