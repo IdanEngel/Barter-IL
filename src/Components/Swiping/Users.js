@@ -18,14 +18,18 @@ class Users extends Component {
         this.props.UserData.getUsers()
     }
 
-    likingUser = async (likedUserId) => {
+    likingUser = async (likedUserId, likedName) => {
         console.log("here with likeduserid " + likedUserId)
         await this.props.UserData.getUsers()
         let currentUser = this.props.UserData.users
             .find(user => user.username === localStorage.getItem('username'))
-        Axios.put(`http://localhost:8000/users/${currentUser._id}`, {
+       let matches= await Axios.put(`http://localhost:8000/users/${currentUser._id}`, {
             id: likedUserId
         })
+        if(matches.data === 'you have a match'){
+            alert(`you have a match with ${likedName}`)
+        }
+        console.log(likedName)
         console.log(`this is the likedID: ${likedUserId}`)
         console.log(currentUser._id)
         this.props.UserData.increaseIndex()

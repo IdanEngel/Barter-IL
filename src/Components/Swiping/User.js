@@ -10,7 +10,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 class User extends Component {     
 
     likingUser = () => {
-        this.props.likingUser(this.props.user._id)
+        this.props.likingUser(this.props.user._id, this.props.user.name)
 
     }
     clearLS = () => {
