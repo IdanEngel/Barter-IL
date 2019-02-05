@@ -10,7 +10,10 @@ import NavBar from '../NavBar';
 @inject('UserData')
 @observer
 class Users extends Component {
-
+    passRoute = () => {
+        let currentPage = this.props.match.url
+        this.props.UserData.getCurrentPage(currentPage)
+      }
     componentDidMount = () => {
         this.props.UserData.getUsers()
     }
@@ -35,6 +38,7 @@ class Users extends Component {
         const filterdUsers = this.props.UserData.users.filter((user, index) => {
             return (index === this.props.UserData.index)
         })
+        this.passRoute()
         return (
             <div>
                 <NavBar />

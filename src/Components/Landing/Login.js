@@ -5,11 +5,14 @@ import { Redirect } from 'react-router-dom'
 import { observer, inject } from 'mobx-react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
-@inject('userLogin')
-@inject('UserData')
+@inject('userLogin', 'UserData')
 @observer
 class Login extends Component {
 
+
+    passRoute = () => {
+        this.props.UserData.getCurrentPage('/loginPage')
+      }
     inputHandler = (event) => {
         this.props.userLogin.inputHandler(event.target.name, event.target.value)
     }
@@ -41,6 +44,8 @@ class Login extends Component {
 
     render() {
         let storage = localStorage.getItem(`username`)
+        this.passRoute()
+        let username = this.props.userLogin.username
         return (
             <div>
                 <div className="header">
@@ -54,7 +59,7 @@ class Login extends Component {
                         onChange={this.inputHandler} />
                     <button className="signup-button" onClick={this.findAndRender}>Login</button>
                     {storage ?
-                        <Redirect to='/swiping' /> :
+                        <Redirect to={"/currentUserPage/" + username } /> :
                         null}
                 <Link to="/signup">
                     <div >click here to signup</div>

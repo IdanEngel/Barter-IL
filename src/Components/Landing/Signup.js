@@ -1,8 +1,9 @@
 import './Landing.css'
 import React, { Component } from 'react';
-import { inject } from 'mobx-react';
+import { observer, inject } from 'mobx-react';
 
-@inject('userSignup')
+@inject('userLogin', 'UserData', 'userSignup')
+@observer
 class Signup extends Component {
  
     addNewUser = () => {
@@ -13,10 +14,12 @@ class Signup extends Component {
     updatState = (event) => {
         this.props.userSignup.changeState(event.target.name, event.target.value)
     }
-
-
-
+    passRoute = () => {
+        let currentPage = this.props.match.url
+        this.props.UserData.getCurrentPage(currentPage)
+      }
     render() {
+        this.passRoute()
         return (
             <div className="add-users">
                 <label for="username">Username: </label>
@@ -36,6 +39,7 @@ class Signup extends Component {
                 <label for="image">Image: </label>
                 <input id="image" type="text" onChange={this.updatState} placeholder="image" name='imgURL' />
                 <button className="button" onClick={this.addNewUser}>Signup</button>
+     
             </div>
         )
     }

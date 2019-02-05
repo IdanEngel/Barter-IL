@@ -11,6 +11,7 @@ class User extends Component {
 
     likingUser = () => {
         this.props.likingUser(this.props.user._id)
+
     }
     clearLS = () => {
         localStorage.clear()
