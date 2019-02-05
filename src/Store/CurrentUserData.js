@@ -3,22 +3,14 @@ import Axios from 'axios';
 import { async } from 'q';
 
 class CurrentUserData {
-    @observable name = ""
-    @observable lastName = ""
-    @observable image = ""
-    @observable location = ""
-    @observable skills = []
+    @observable currentUserInformation = {}
+    @observable skillsData = []
 
     @action getUser = async (currentUser) => {
-        let data = await Axios.get(`http://localhost:8000/currentUserPage/:${currentUser}`)
-        this.name = data.name
-        this.lastName = data.lastName
-        this.image = data.imgURL
-        this.location = data.location
-        this.skills = data.skills
-        return(
-            this.name, this.lastName, this.image, this.location, this.skills
-        )
+        let userInformation = await Axios.get(`http://localhost:8000/currentUserPage/${currentUser}`)
+        this.currentUserInformation = userInformation.data
+        this.skillsData = userInformation.data.skills
+        // await console.log(userInformation)
     }
 }
 
