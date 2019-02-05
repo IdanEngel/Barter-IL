@@ -63,10 +63,10 @@ router.put('/sendmessages/:currentUserId', (req, res) => {
 })
 
 
-updateLikes = (loggenInUser, ) => {
+updateLikes = (loggenInUser, likedUser) => {
     User.findByIdAndUpdate(loggenInUser, {
         $push: {
-            likes: ._id
+            likes: likedUser._id
         }
 
     }, { new: true }, function (err, data) {

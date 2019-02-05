@@ -11,7 +11,7 @@ import Axios from 'axios';
 class SingleMatch extends Component {
     render() {
         return (
-            <Link to={"/chatslists/chatWindow/" + this.props.matchedUser.username}>
+            <Link to={"/chats/chatbox/" + this.props.matchedUser.username}>
                 <img className="match-img" src={this.props.matchedUser.imgURL}></img>
             </Link>
 
