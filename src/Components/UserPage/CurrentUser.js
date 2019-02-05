@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom'
+import Axios from 'axios';
 import NavBar from '../NavBar';
 import { observer, inject } from 'mobx-react';
 import { async } from 'q';
@@ -12,6 +13,12 @@ class CurrentUser extends Component {
         this.state = {
             val: false
         }
+    }
+    clearLS = () => {
+        localStorage.clear()
+        this.setState({
+            val: !this.state.val
+        })
     }
 
     componentDidMount = () => {
@@ -40,6 +47,9 @@ class CurrentUser extends Component {
         
         return (
             <div>
+                 {storage ?
+                        null :
+                        <Redirect to='/' />}
                 <NavBar />
                 <div className="currentUserPage">
                     <img className="currentUser-img" src={finalUserData.imgURL} alt="currentUser-img"></img>
