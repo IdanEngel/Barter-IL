@@ -24,10 +24,19 @@ router.get('/chats/:currentUserId', (req, res) => {
     })
 })
 
-router.post('/newuser', async function (req, res) {
-    let newUser = await new User(req.body)
-    newUser.save()
-    res.send('new user saved to DB')
+router.post('/newuser', async function (req, res, next) {
+    User.findOne({ username: req.body.username }, function (err, user) {
+        if (user) {
+            var err = new Error('A user with that username has already registered. Please use a different username.')
+            err.status = 400;
+            return next(err)
+            // alert('usrename already exist, pleast choose a different username')
+        } else {
+            let newUser = new User(req.body)
+            newUser.save()
+            res.send('new user saved to DB')
+        }
+    })
 })
 
 
@@ -44,83 +53,87 @@ router.put('/sendmessages/:currentUserId', (req, res) => {
         $push: {
             messages: req.body.message
         }
-    }, { new: true }, function(err, data){
+    }, { new: true }, function (err, data) {
         console.log(data);
     })
     console.log(req.params.currentUserId);
-    
+
     res.send(req.body.message)
 })
 
-router.put('/users/:currentUser', (req, res) => {
-    console.log("here with " + req.params.currentUser)
-
-    updateMatches = (userOne, userTwo) => {
-        User.findByIdAndUpdate(userOne, {
-            $push: {
-                matches: `${userTwo._id}`
-            }
-
-        }, { new: true }, function (err, data) {
-            console.log(data)
-        })
-        User.findByIdAndUpdate(userTwo, {
-            $pull: {
-                likes: `${userOne._id}`
-            }
-        }, { new: true }, function (err, data) {
-            console.log('you have a match')
-
-        })
-    }
-
-        updateLikes = (userOne, userTwo) => {
-            User.findByIdAndUpdate(userOne, {
-                $push: {
-                    likes: `${userTwo._id}`
-                }
-
-            }, { new: true }, function (err, data) {
-            })
+updateLikes = (loggenInUser, likedUser) => {
+    User.findByIdAndUpdate(loggenInUser, {
+        $push: {
+            likes: likedUser._id
         }
+
+    }, { new: true }, function (err, data) {
+    })
+}
+
+
+updateMatches = (userOne, userTwo) => {
+    User.findByIdAndUpdate(userOne, {
+        $push: {
+            matches: `${userTwo._id}`
+        }
+        
+    }, { new: true }, function (err, data) {
+        console.log(data)
+    })
+    User.findByIdAndUpdate(userTwo, {
+        $pull: {
+            likes: userOne._id
+        }
+    }, { new: true }, function (err, data) {
+        console.log('you have a match')
+        
+    })
+}
+
+const isMatch = function(loggedInUserId, likedUser){
+    return likedUser.likes.find(likedId => loggedInUserId == likedId)
+}
+
+router.put('/users/:currentUser', (req, res) => {
     ids = [req.params.currentUser, req.body.id]
-    console.log(`req id: ${req.body.id}`)
-    console.log(`cuurent id: ${req.params.currentUser}`)
+    console.log(`user being liked: ${req.body.id}`)
+    console.log(`loggedin user: ${req.params.currentUser}`)
 
     User.find({
         _id: {
             $in: [req.params.currentUser, req.body.id]
         }
     }, function (err, data) {
-        const activeUser = data[1]
-        const likedUser = data[0]
-        if (likedUser.likes.find(liked => activeUser.id == liked)) {
-           //for active user
-           console.log("calling")
+        const activeUser = data.find(f => f._id == req.params.currentUser )
+        const likedUser = data.find(f => f._id == req.body.id )
+        console.log(data)
+        if (isMatch(activeUser.id, likedUser)) {
+            //for active user
+            console.log("calling")
             updateMatches(activeUser, likedUser)
             //for likedUser
             updateMatches(likedUser, activeUser)
         } else {
             updateLikes(activeUser, likedUser)
         }
-        console.log(`added match`)
-})
+    })
     res.end()
 })
 
-router.post('/user',(req,res)=>{
-    const {username} = req.body
+router.post('/user', (req, res) => {
+    const { username } = req.body
     chatkit
         .createUser({
             name: username,
             id: username
         })
-        .then(()=> res.sendStatus(201))
-        .catch(error =>{
-            if(error.error_type === 'service/chatkit/user_already_exists'){
+        .then(() => res.sendStatus(201))
+        .catch(error => {
+            if (error.error_type === 'service/chatkit/user_already_exists') {
                 res.sendStatus(200)
             }
-            else{
+            else {
                 res.status(error.statusCode).json(error)
             }
         })

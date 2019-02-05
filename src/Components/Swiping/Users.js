@@ -15,13 +15,16 @@ class Users extends Component {
         this.props.UserData.getUsers()
     }
 
-    likingUser = (likedUserId) => {
+    likingUser = async (likedUserId) => {
         console.log("here with likeduserid " + likedUserId)
-        //insert currentUserId
-        Axios.put(`http://localhost:8000/users/5c51c165c1ff0effc2683694`, {
+        await this.props.UserData.getUsers()
+        let currentUser = this.props.UserData.users
+            .find(user => user.username === localStorage.getItem('username'))
+        Axios.put(`http://localhost:8000/users/${currentUser._id}`, {
             id: likedUserId
         })
         console.log(`this is the likedID: ${likedUserId}`)
+        console.log(currentUser._id)
         this.props.UserData.increaseIndex()
     }
     dislikeUser = () => {
@@ -39,7 +42,7 @@ class Users extends Component {
                     return (
                         <div>
                             <User user={user} likingUser={this.likingUser} dislikeUser={this.dislikeUser} />
-                              
+
                         </div>
 
 

@@ -28,8 +28,8 @@ class App extends Component {
           <Route path='/currentUserPage' exact component={CurrentUser} />
           <Route path='/swiping' exact component={Users} />
           <Route path='/chats' exact component={Chats} />
-          <Route path="/chatlist" exact Component={Chatlist} />
-          <Route path="/signup" exact Component={Signup}/>
+          <Route path="/chatlist" exact component={Chatlist} />
+          <Route path="/signup" exact component={Signup}/>
           <Route path="/chatslists/chatBox" exact Component={ChatBox} />
 
           {/* <Deck /> */}

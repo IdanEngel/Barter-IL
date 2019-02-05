@@ -9,12 +9,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 @inject('UserData')
 @observer
 class Login extends Component {
-    constructor() {
-        super()
-        this.state = {
-            val: false
-        }
-    }
 
     inputHandler = (event) => {
         this.props.userLogin.inputHandler(event.target.name, event.target.value)
@@ -34,9 +28,7 @@ class Login extends Component {
             .find(user => user.username === username)
         if (currentUser && currentUser.password === password) {
             await localStorage.setItem(`username`, username)
-            this.setState({
-                val: !this.state.val
-            })
+            this.forceUpdate()
 
         }
 

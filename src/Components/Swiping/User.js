@@ -9,25 +9,13 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 @observer
 class User extends Component {     
 
-    constructor() {
-        super()
-        this.state = {
-            val: false
-        }
-    }
     likingUser = () => {
         this.props.likingUser(this.props.user._id)
-
-
     }
     clearLS = () => {
         localStorage.clear()
-        this.setState({
-            val: !this.state.val
-        })
+      this.forceUpdate()
     }
-
-
 
     render() {
         const user = this.props.user
@@ -77,9 +65,6 @@ class User extends Component {
                         <FontAwesomeIcon className="likeButton" onClick={this.likingUser} icon="heart"></FontAwesomeIcon>
                         <FontAwesomeIcon className="dislikeButton" onClick={this.props.dislikeUser} icon="times-circle"></FontAwesomeIcon>
                     </div>
->>>>>>> 1cd4631edb54bfc5e97e2db8103e09479b23df00
-
-
                 </div>
                 {/* : null} */}
 

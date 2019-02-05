@@ -1,0 +1,34 @@
+/* .add-inputs  {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: repeat(4, 0.5fr)
+}
+
+.add-inputs input {
+    height: 15%;
+} */
+
+input  {
+    border: none;
+    background-color: transparent;
+    box-shadow: 0 1px rgb(180, 174, 174);
+    margin-left: 7px;
+}
+
+.add-users {
+    display: grid;
+    align-items: center;
+}
+
+.button {
+    width: 200px;
+    height: 30px;
+    background-color: yellow;
+    text-align: center;
+    justify-content: center;
+    cursor: pointer;
+    margin-left: 20px;
+    display: grid;
+    align-items: center;
+
+}
