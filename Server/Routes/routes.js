@@ -40,8 +40,8 @@ router.post('/newuser', async function (req, res, next) {
 
 
 //sending the user details to the client
+router.get('/currentUserPage/:userName', (req, res) => {
 
-router.get('/profile/:userName', (req, res) => {
     User.findOne({ username: req.params.userName }, function (error, user) {
         res.send(user)
     })
