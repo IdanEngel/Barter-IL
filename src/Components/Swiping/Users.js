@@ -4,8 +4,6 @@ import { observer, inject } from 'mobx-react'
 import Axios from 'axios';
 import User from './User';
 import NavBar from '../NavBar';
-// import CurrentUser from '../UserPage/CurrentUser';
-// import Carousel from 'nuka-carousel';
 
 @inject('UserData')
 @observer

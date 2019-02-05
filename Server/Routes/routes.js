@@ -9,23 +9,22 @@ const chatkit = new Chatkit.default({
     key: 'f64ccf1c-2215-44f5-a5b0-38b064e4e6f9:Is7KDpsNvfg8uqnB7xVMIJ4dDbgXupHooKZkhMEeaKw='
 })
 
-
 //get all users
 router.get('/users', (req, res) => {
-    User.find({}, function (err, user) {
+    User.find({}, function(err, user) {
         res.send(user)
     });
 })
 
 router.get('/chats/:currentUserId', (req, res) => {
-    User.findOne({ _id: req.params.currentUserId }, function (error, user) {
+    User.findOne({ _id: req.params.currentUserId }, function(error, user) {
         console.log(user)
         res.send(user)
     })
 })
 
-router.post('/newuser', async function (req, res, next) {
-    User.findOne({ username: req.body.username }, function (err, user) {
+router.post('/newuser', async function(req, res, next) {
+    User.findOne({ username: req.body.username }, function(err, user) {
         if (user) {
             var err = new Error('A user with that username has already registered. Please use a different username.')
             err.status = 400;
@@ -42,7 +41,7 @@ router.post('/newuser', async function (req, res, next) {
 
 //sending the user details to the client
 router.get('/currentUserPage/:username', (req, res) => {
-    User.findOne({ username: req.params.username }, function (error, user) {
+    User.findOne({ username: req.params.username }, function(error, user) {
         res.send(user)
     })
 })
@@ -53,7 +52,7 @@ router.put('/sendmessages/:currentUserId', (req, res) => {
         $push: {
             messages: req.body.message
         }
-    }, { new: true }, function (err, data) {
+    }, { new: true }, function(err, data) {
         console.log(data);
     })
     console.log(req.params.currentUserId);
@@ -67,7 +66,7 @@ updateLikes = (loggenInUser, likedUser) => {
             likes: `${likedUser._id}`
         }
 
-    }, { new: true }, function (err, data) {
+    }, { new: true }, function(err, data) {
     })
 }
 
@@ -77,21 +76,21 @@ updateMatches = (userOne, userTwo) => {
         $push: {
             matches: `${userTwo._id}`
         }
-        
-    }, { new: true }, function (err, data) {
+
+    }, { new: true }, function(err, data) {
         console.log(data)
     })
     User.findByIdAndUpdate(userTwo, {
         $pull: {
             likes: userOne._id
         }
-    }, { new: true }, function (err, data) {
+    }, { new: true }, function(err, data) {
         console.log('you have a match')
-        
+
     })
 }
 
-const isMatch = function(loggedInUserId, likedUser){
+const isMatch = function(loggedInUserId, likedUser) {
     return likedUser.likes.find(likedId => loggedInUserId == likedId)
 }
 
@@ -104,9 +103,9 @@ router.put('/users/:currentUser', (req, res) => {
         _id: {
             $in: [req.params.currentUser, req.body.id]
         }
-    }, function (err, data) {
-        const activeUser = data.find(f => f._id == req.params.currentUser )
-        const likedUser = data.find(f => f._id == req.body.id )
+    }, function(err, data) {
+        const activeUser = data.find(f => f._id == req.params.currentUser)
+        const likedUser = data.find(f => f._id == req.body.id)
         console.log(data)
         if (isMatch(activeUser.id, likedUser)) {
             //for active user
@@ -139,6 +138,19 @@ router.post('/user', (req, res) => {
             }
         })
 })
+
+router.get('/getMatches/:currentUserId', async (req, res) => {
+    let matchedUsers = [];
+    let data = await User.findOne({ _id: req.params.currentUserId })
+    for (let match of data.matches) {
+        let user = await User.findOne({ _id: match })
+        matchedUsers.push(user.username)
+        console.log(matchedUsers)
+    }
+    res.send(matchedUsers)
+})
+
+
 
 
 
