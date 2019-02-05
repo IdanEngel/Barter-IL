@@ -42,6 +42,7 @@ router.post('/newuser', async function(req, res, next) {
 //sending the user details to the client
 router.get('/currentUserPage/:username', (req, res) => {
     User.findOne({ username: req.params.username }, function(error, user) {
+        console.log(user)
         res.send(user)
     })
 })
@@ -144,9 +145,10 @@ router.get('/getMatches/:currentUserId', async (req, res) => {
     let data = await User.findOne({ _id: req.params.currentUserId })
     for (let match of data.matches) {
         let user = await User.findOne({ _id: match })
-        matchedUsers.push(user.username)
-        console.log(matchedUsers)
+        matchedUsers.push(user)
+        // console.log(matchedUsers)
     }
+    console.log(matchedUsers)
     res.send(matchedUsers)
 })
 
