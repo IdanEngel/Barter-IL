@@ -14,6 +14,7 @@ class CurrentUser extends Component {
             val: false
         }
     }
+  
     clearLS = () => {
         localStorage.clear()
         this.setState({
@@ -42,7 +43,7 @@ class CurrentUser extends Component {
         this.passRoute()
         let finalUserData = this.props.currentUserData.currentUserInformation
         let finalSkillData = this.props.currentUserData.skillsData
-        console.log(finalSkillData);
+        // console.log(finalSkillData);
         let skillData = finalSkillData.map(m =><div>{m} </div>)
         
         return (

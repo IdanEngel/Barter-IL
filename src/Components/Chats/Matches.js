@@ -7,7 +7,7 @@ import Axios from 'axios';
 import SingleMatch from './SingleMatch';
 
 
-@inject('UserData')
+@inject('UserData','userLogin')
 @observer
 class Matches extends Component {
     constructor(){
@@ -18,7 +18,9 @@ class Matches extends Component {
     }
     getMatchedUsers = async () => {
         //hard coded for one currentuser, need to inject currentUserId from store...
-        let matchedUsers = await Axios.get(`http://localhost:8000/getMatches/5c52b92f3f410018c6aeff29`)
+        let currentUserId = this.props.userLogin.currentUserId
+        // console.log(currentUserId)
+        let matchedUsers = await Axios.get(`http://localhost:8000/getMatches/${currentUserId}`)
         let matchedUserData = matchedUsers.data
         this.setState({
             matchedUsers: matchedUserData
@@ -30,7 +32,7 @@ class Matches extends Component {
     }
     render() {
         let matchedUsers = this.state.matchedUsers
-        console.log(matchedUsers)
+        // console.log(this.props.userLogin.currentUserId)
         return (
             <div className="singleMatch-imgDiv">
                 {matchedUsers.map(match=>{

@@ -42,7 +42,7 @@ router.post('/newuser', async function(req, res, next) {
 //sending the user details to the client
 router.get('/currentUserPage/:username', (req, res) => {
     User.findOne({ username: req.params.username }, function(error, user) {
-        console.log(user)
+        console.log(`the get user id route is being accessed ${user._id}`)
         res.send(user)
     })
 })
