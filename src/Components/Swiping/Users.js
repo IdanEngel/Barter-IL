@@ -22,6 +22,7 @@ class Users extends Component {
         let currentUser = this.props.UserData.users
             .find(user => user.username === localStorage.getItem('username'))
        let matches= await Axios.put(`http://localhost:8000/users/${currentUser._id}`, {
+
             id: likedUserId
         })
         if(matches.data === 'you have a match'){

@@ -12,6 +12,7 @@ class Login extends Component {
         // let currentUsername = this.props.userLogin.username
         this.props.userLogin.getCurrentUserId()
     }
+
     passRoute = () => {
         this.props.UserData.getCurrentPage('/loginPage')
       }
@@ -42,7 +43,6 @@ class Login extends Component {
         }
     }
 
-
     render() {
         this.getCurrentUserId()
         let storage = localStorage.getItem(`username`)
@@ -63,7 +63,7 @@ class Login extends Component {
                         onChange={this.inputHandler} />
                     <button className="signup-button" onClick={this.findAndRender}>Login</button>
                     {storage ?
-                        <Redirect to={"/currentUserPage/" + username } /> :
+                        <Redirect to={`/currentUserPage/:currentUsername` } /> :
                         null}
                 <Link to="/signup">
                     <div >click here to signup</div>

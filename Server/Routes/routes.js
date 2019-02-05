@@ -23,8 +23,8 @@ router.get('/chats/:currentUserId', (req, res) => {
     })
 })
 
-router.post('/newuser', async function(req, res, next) {
-    User.findOne({ username: req.body.username }, function(err, user) {
+router.post('/newuser', async function (req, res, next) {
+    User.findOne({ username: req.body.username }, function (err, user) {
         if (user) {
             var err = new Error('A user with that username has already registered. Please use a different username.')
             err.status = 400;
@@ -40,9 +40,9 @@ router.post('/newuser', async function(req, res, next) {
 
 
 //sending the user details to the client
-router.get('/currentUserPage/:username', (req, res) => {
-    User.findOne({ username: req.params.username }, function(error, user) {
-        console.log(`the get user id route is being accessed ${user._id}`)
+
+router.get('/profile/:userName', (req, res) => {
+    User.findOne({ username: req.params.userName }, function (error, user) {
         res.send(user)
     })
 })
@@ -53,7 +53,8 @@ router.put('/sendmessages/:currentUserId', (req, res) => {
         $push: {
             messages: req.body.message
         }
-    }, { new: true }, function(err, data) {
+
+    }, { new: true }, function (err, data) {
         console.log(data);
     })
     console.log(req.params.currentUserId);
@@ -61,13 +62,14 @@ router.put('/sendmessages/:currentUserId', (req, res) => {
     res.send(req.body.message)
 })
 
-updateLikes = (loggenInUser, likedUser) => {
+
+updateLikes = (loggenInUser, ) => {
     User.findByIdAndUpdate(loggenInUser, {
         $push: {
-            likes: `${likedUser._id}`
+            likes: ._id
         }
 
-    }, { new: true }, function(err, data) {
+    }, { new: true }, function (err, data) {
     })
 }
 
@@ -77,21 +79,21 @@ updateMatches = (userOne, userTwo) => {
         $push: {
             matches: `${userTwo._id}`
         }
-
-    }, { new: true }, function(err, data) {
+        
+    }, { new: true }, function (err, data) {
         console.log(data)
     })
     User.findByIdAndUpdate(userTwo, {
         $pull: {
             likes: userOne._id
         }
-    }, { new: true }, function(err, data) {
+    }, { new: true }, function (err, data) {
         console.log('you have a match')
-
+        
     })
 }
 
-const isMatch = function(loggedInUserId, likedUser) {
+const isMatch = function(loggedInUserId, likedUser){
     return likedUser.likes.find(likedId => loggedInUserId == likedId)
 }
 
@@ -104,9 +106,10 @@ router.put('/users/:currentUser', (req, res) => {
         _id: {
             $in: [req.params.currentUser, req.body.id]
         }
-    }, function(err, data) {
-        const activeUser = data.find(f => f._id == req.params.currentUser)
-        const likedUser = data.find(f => f._id == req.body.id)
+
+    }, function (err, data) {
+        const activeUser = data.find(f => f._id == req.params.currentUser )
+        const likedUser = data.find(f => f._id == req.body.id )
         console.log(data)
         if (isMatch(activeUser.id, likedUser)) {
             //for active user
@@ -118,8 +121,9 @@ router.put('/users/:currentUser', (req, res) => {
         } else {
             updateLikes(activeUser, likedUser)
         }
-        res.end()
+
     })
+    res.end()
 })
 
 router.post('/user', (req, res) => {

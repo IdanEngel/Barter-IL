@@ -14,7 +14,7 @@ class CurrentUser extends Component {
             val: false
         }
     }
-  
+
     clearLS = () => {
         localStorage.clear()
         this.setState({

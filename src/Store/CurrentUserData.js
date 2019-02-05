@@ -1,6 +1,5 @@
 import {observable, action} from 'mobx'
 import Axios from 'axios';
-import { async } from 'q';
 
 class CurrentUserData {
     @observable currentUserInformation = {}
