@@ -52,6 +52,10 @@ router.put('/sendmessages/:currentUserId', (req, res) => {
     res.send(req.body.message)
 })
 
+router.put('/user', (req, res) => {
+    console.log(req.body.shouldRender)
+})
+
 router.put('/users/:currentUser', (req, res) => {
     console.log("here with " + req.params.currentUser)
 

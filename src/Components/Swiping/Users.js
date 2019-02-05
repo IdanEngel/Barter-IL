@@ -27,7 +27,8 @@ class Users extends Component {
         console.log(`this is the likedID: ${likedUserId}`)
         this.props.UserData.increaseIndex()
     }
-    dislikeUser = () => {
+    dislikeUser = (dislikeUserId) => {
+        console.log(dislikeUserId)
         this.props.UserData.increaseIndex()
     }
 
