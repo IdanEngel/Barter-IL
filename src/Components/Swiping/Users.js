@@ -29,6 +29,7 @@ class Users extends Component {
     }
     dislikeUser = (dislikeUserId) => {
         console.log(dislikeUserId)
+        // Axios.put
         this.props.UserData.increaseIndex()
     }
 
