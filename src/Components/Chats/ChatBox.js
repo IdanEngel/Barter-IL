@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import './Chats.css';
 import socket from 'socket.io-client'
+import NavBar from '../NavBar';
 
-class App extends Component {
+class Chatbox extends Component {
   constructor() {
     super()
     this.state = {
@@ -57,6 +58,7 @@ class App extends Component {
   render() {
     return (
       <div className="mario-chat">
+      <NavBar />
         <div className="chat-window">
           <div className="output">
             {this.state.messages.map(m => {
@@ -75,4 +77,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default Chatbox;

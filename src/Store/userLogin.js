@@ -16,7 +16,7 @@ class login {
         let currentUserId = await Axios.get(`http://localhost:8000/currentUserPage/${this.username}`)
         // console.log(currentUserId)
         this.currentUserId = currentUserId.data._id
-        console.log(this.currentUserId)
+        // console.log(this.currentUserId)
 
     }
  

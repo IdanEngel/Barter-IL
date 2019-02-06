@@ -8,6 +8,7 @@ class userFromDb {
     @observable index = 0
     @observable currentUser = ""
     @observable currentScreen = ""
+    @observable matchedUserId = ""
     @observable raw = true
 
     @action getUsers = async () => {
@@ -22,6 +23,9 @@ class userFromDb {
     }
     @action getCurrentPage = (currentScreen) => {
         this.currentScreen = currentScreen
+    }
+    @action getMatchedUserId = (matchedUserId) =>{
+        this.matchedUserId = matchedUserId
     }
     @action updateUsers = (newUsers) => {
         console.log(newUsers)
