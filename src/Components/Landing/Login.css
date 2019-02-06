@@ -1,19 +1,24 @@
 
 .login-box{
-    display: grid;
-    grid-auto-columns: auto;
-    height: 85%;
-    border-style: ridge;
-    border-radius: 5%;
-    width: 90%;
-    margin: auto;
+  display: grid;
+  grid-auto-rows: 1fr 1fr 1fr;
+  height: 55%;
+  border-style: ridge;
+  border-radius: 5%;
+  width: 90%;
+  margin: auto;
+  margin-top: 10%;
   }
-  .login-button{
-    width: 56%;
-    height: 45%;
+  .login-box input{
+    padding: none; 
+    height:30%;
+  }
+  .login-button {
+    width: 63%;
+    height: 40%;
     border-radius: 6%;
     justify-self: center;
-  }
+}
 .login-box input {
     width: 90%;
     margin: auto;

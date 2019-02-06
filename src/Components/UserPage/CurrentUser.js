@@ -32,7 +32,7 @@ class CurrentUser extends Component {
     passRoute = () => {
         let currentPage = this.props.match.path
         this.props.UserData.getCurrentPage(currentPage)
-      }
+    }
     clearLS = () => {
         localStorage.clear()
         this.setState({
@@ -46,29 +46,31 @@ class CurrentUser extends Component {
         let finalUserData = this.props.currentUserData.currentUserInformation
         let finalSkillData = this.props.currentUserData.skillsData
         // console.log(finalSkillData);
-        let skillData = finalSkillData.map(m =><div className="skill">{m} </div>)
-        
+        let skillData = finalSkillData.map(m => <div>{m} </div>)
+
+
         return (
             <div>
-                 {storage ?
-                        null :
-                        <Redirect to='/' />}
+                {storage ?
+                    null :
+                    <Redirect to='/' />}
                 <NavBar />
                 <div className="currentUserPage">
-                <div className="header">
-                <img className="currentUser-img" src={finalUserData.imgURL} alt="currentUser-img"></img>
-                <div className="name">{finalUserData.name}</div>
-                </div>
-                <div className="main">
-                    <div className="location">{finalUserData.location}</div>
-                    <div className="age">{finalUserData.age}</div>
-                    <div className="skills"><strong>Skills:</strong> {skillData}</div>
-                </div>
-                   
+                    <img className="currentUser-img" src={finalUserData.imgURL} alt="currentUser-img"></img>
+                    <span className="name"> {finalUserData.name} {finalUserData.lastName} </span>
+
+                    <br></br>
+                    {finalUserData.location}
+                    <br></br>
+                    {finalUserData.age}
+                    <span className="CU-skills">Skills </span>
+                    <hr className="line"></hr>
+                    {skillData}
                     {storage ?
                         null :
                         <Redirect to='/' />}
-                    <button className="logout" onClick={this.clearLS}>Logout</button>
+                    <button className="logout-button" onClick={this.clearLS}>Logout</button>
+
                 </div>
             </div>
         )

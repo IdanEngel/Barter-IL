@@ -57,6 +57,8 @@ class Login extends Component {
                     Barter IL <FontAwesomeIcon icon="handshake"></FontAwesomeIcon>
 
                 </div>
+
+
                 <div className="login-box">
                     <input placeholder="username" type="text" name="username"
                         onChange={this.inputHandler} />
@@ -66,8 +68,9 @@ class Login extends Component {
                     {storage ?
                         <Redirect to={`/currentUserPage/:currentUsername`} /> :
                         null}
-                    <Link to="/signup">
+                    <Link to="/signup" >
                         <div >click here to signup</div>
+
                     </Link>
                 </div>
 

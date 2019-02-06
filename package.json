@@ -58,6 +58,7 @@
     "pusher-chatkit-server": "^0.12.0",
     "react": "^16.7.0",
     "react-app-polyfill": "^0.2.0",
+    "react-awesome-button": "^5.0.0",
     "react-dev-utils": "^7.0.1",
     "react-dom": "^16.7.0",
     "react-gesture": "0.0.5",

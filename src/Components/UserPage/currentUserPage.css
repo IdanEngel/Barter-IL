@@ -6,7 +6,7 @@
     text-align: center;
     display: grid;
     grid-auto-columns: auto;
-    grid-gap: 2%;
+    /* grid-gap: 2%; */
     align-items: initial;
     font-size: 23px
   }
@@ -23,34 +23,32 @@
 .currentUser-img{
     border-radius: 50%;
     height: 30vh;
+    padding: 8px;
   }
-
-
-.name{
-  font-size: 25px;
-  font-weight: bold
-}
-.main{
-  width: 100%;
-  grid-gap: 15px;
-  justify-items: center;
-  display: grid;
-}
-
-
-.skills{
-    display: grid;
-    font-size: 19px;
+  .name{
+    font-size: 35px;;
   }
-  
   .skill{
-    margin-right: 245px;
-    text-align: left;
-}
+    text-align: center;
+  }
+  .logout-button{
+    background: #95afc0;
+    color: #fff;
+    font-size: 19px;
+    border: 0;
+    padding: 12px 0;
+    width: 73%;
+    border-radius: 5px;
+    padding: 15px;
+    margin: 51px;
+  }
+  .line{
+    width:45%;
+  }
+  .CU-skills{
+    font-weight: bold;
+    font-size: 20px;
+    padding: 15px;
 
-.logout{
-  width: 80px;
-  height: 45px;
-  border-radius: 20%;
-  margin-top: 50px
+
   }

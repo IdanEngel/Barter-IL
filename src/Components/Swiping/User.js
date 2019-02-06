@@ -34,12 +34,12 @@ class User extends Component {
                             <div className="swipeUser-info" >
                                 <img src={user.imgURL} alt="swipingUser-img"></img>
                                 <div className="text-user">
-                                    <h3>{user.name}
+                                    <span className="username">{user.name}</span>
+                                    
                                         <br></br>
                                         {user.location}
                                         <br></br>
                                         {user.age}
-                                    </h3>
 
                                     <hr></hr>
                                     <h4>Skills:</h4>
@@ -70,14 +70,14 @@ class User extends Component {
                 </div>
                 <div className="swiping-buttons">
                     <div className="button-badge">
-                       <div className="button-icon" >
-                        <FontAwesomeIcon className="dislikeButton" onClick={this.dislikeUser} icon="times-circle"></FontAwesomeIcon>
-                       </div>
+                        <div className="button-icon" >
+                            <FontAwesomeIcon className="dislikeButton" onClick={this.dislikeUser} icon="times-circle"></FontAwesomeIcon>
+                        </div>
                     </div>
                     <div className="button-badge">
-                    <div className="button-icon">
-                        <FontAwesomeIcon className="likeButton" onClick={this.likingUser} icon="thumbs-up"></FontAwesomeIcon>
-                    </div>
+                        <div className="button-icon">
+                            <FontAwesomeIcon className="likeButton" onClick={this.likingUser} icon="thumbs-up"></FontAwesomeIcon>
+                        </div>
 
                     </div>
                 </div>
