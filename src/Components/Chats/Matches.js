@@ -19,7 +19,7 @@ class Matches extends Component {
     getMatchedUsers = async () => {
         //hard coded for one currentuser, need to inject currentUserId from store...
         let currentUserId = this.props.userLogin.currentUserId
-        // console.log(currentUserId)
+        console.log(currentUserId)
         let matchedUsers = await Axios.get(`http://localhost:8000/getMatches/${currentUserId}`)
         let matchedUserData = matchedUsers.data
         this.setState({
