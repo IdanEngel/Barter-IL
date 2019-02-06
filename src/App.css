@@ -1,8 +1,10 @@
 .nav-bar{
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  background-color: red;
+  background-color:  #00b894 ;
   text-align: center;
+  margin: auto;
+  height: 4vh;
 }
 .nav-bar a{
   color: white;
@@ -13,6 +15,8 @@
   box-sizing: border-box;
   text-decoration: none;
   text-align: center;
+  font-family: 'Montserrat', sans-serif;
+
 }
 
 html,
@@ -23,10 +27,9 @@ body {
   height: 100%;
   width: 100%;
   user-select: none;
-  font-family: 'Noto Serif SC', serif;
     position: fixed;
   overflow: hidden;
-  font-family: 'Noto Serif SC', serif;
+
 }
 
 
@@ -42,7 +45,7 @@ body {
 
 #root > div > div {
   padding: 5px;
-  background-color: white;
+  background-color:  #efefef;
   background-size: auto 85%;
   background-repeat: no-repeat;
   background-position: center center;
@@ -68,7 +71,6 @@ h2 {
   display: inline-block;
   margin-right: 10px;
 }
-
 
 
 
