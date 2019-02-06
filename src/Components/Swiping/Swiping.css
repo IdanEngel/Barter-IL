@@ -18,10 +18,9 @@
   .swiping-buttons{
     display: grid;
     grid-template-columns: 20px 20px;
-    justify-content: center;
-    grid-gap: 38px;
-    font-size: 34px;
-    padding: 10px;
+    margin-left: 25%;
+    grid-gap: 23vw;
+    font-size: 25px;
     color:white;
 
   }
@@ -32,10 +31,13 @@
   .button-badge{
     border-radius: 50%;
     padding: 20px;
-    width: 60px;
-    height: 60px;    
+    width: 30px;
+    height: 30px;
     justify-content: center;
-    display: grid; 
+    display: grid;
     align-items: center;
-    background-color: aquamarine
+    background-color: aquamarine;
+}
+.button-icon{
+  text-align: center
 }

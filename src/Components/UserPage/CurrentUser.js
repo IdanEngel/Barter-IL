@@ -31,7 +31,7 @@ class CurrentUser extends Component {
     passRoute = () => {
         let currentPage = this.props.match.path
         this.props.UserData.getCurrentPage(currentPage)
-      }
+    }
     clearLS = () => {
         localStorage.clear()
         this.setState({
@@ -45,24 +45,26 @@ class CurrentUser extends Component {
         let finalUserData = this.props.currentUserData.currentUserInformation
         let finalSkillData = this.props.currentUserData.skillsData
         // console.log(finalSkillData);
-        let skillData = finalSkillData.map(m =><div>{m} </div>)
-        
+        let skillData = finalSkillData.map(m => <div>{m} </div>)
+
         return (
             <div>
-                 {storage ?
-                        null :
-                        <Redirect to='/' />}
+                {storage ?
+                    null :
+                    <Redirect to='/' />}
                 <NavBar />
                 <div className="currentUserPage">
                     <img className="currentUser-img" src={finalUserData.imgURL} alt="currentUser-img"></img>
-                    <h3>Name: {finalUserData.name} {finalUserData.lastName}
-                    <br></br>
-                    Location: {finalUserData.location}
-                    <br></br>
-                    Age: {finalUserData.age}
-                    </h3>
+                    <span className="name"> {finalUserData.name} {finalUserData.lastName} </span>
+
+                        <br></br>
+                        <span>
+                        {finalUserData.location}
+                        <br></br>
+                        {finalUserData.age}
+                        </span>
                     <h4>Skills: {skillData}</h4>
-                   
+
                     {storage ?
                         null :
                         <Redirect to='/' />}

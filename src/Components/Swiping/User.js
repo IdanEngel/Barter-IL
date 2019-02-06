@@ -70,14 +70,14 @@ class User extends Component {
                 </div>
                 <div className="swiping-buttons">
                     <div className="button-badge">
-                       <div className="button-icon" >
-                        <FontAwesomeIcon className="dislikeButton" onClick={this.dislikeUser} icon="times-circle"></FontAwesomeIcon>
-                       </div>
+                        <div className="button-icon" >
+                            <FontAwesomeIcon className="dislikeButton" onClick={this.dislikeUser} icon="times-circle"></FontAwesomeIcon>
+                        </div>
                     </div>
                     <div className="button-badge">
-                    <div className="button-icon">
-                        <FontAwesomeIcon className="likeButton" onClick={this.likingUser} icon="thumbs-up"></FontAwesomeIcon>
-                    </div>
+                        <div className="button-icon">
+                            <FontAwesomeIcon className="likeButton" onClick={this.likingUser} icon="thumbs-up"></FontAwesomeIcon>
+                        </div>
 
                     </div>
                 </div>
