@@ -71,7 +71,12 @@ h2 {
   display: inline-block;
   margin-right: 10px;
 }
-
+.header {
+  font-size: -webkit-xxx-large;
+  font-weight: bold;
+  color: white;
+  background-color: #00b894;
+}
 
 
 

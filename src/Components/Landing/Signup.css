@@ -20,8 +20,12 @@ input  {
     font-size: 19px;
     border: 0;
     padding: 12px 0;
-    width: 76%;
+    width: 52%;
+    height: 7%;
+    border-radius: 6%;
+    justify-self: center;
     border-radius: 5px;
-    padding: 16px;
-   
+    padding: 4px;
+    margin: 9%;
 }
+
