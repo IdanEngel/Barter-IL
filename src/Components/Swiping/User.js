@@ -69,8 +69,8 @@ class User extends Component {
                         </div>
                     </div>
                     <div className="swiping-buttons">
-                        <FontAwesomeIcon className="likeButton" onClick={this.likingUser} icon="heart"></FontAwesomeIcon>
                         <FontAwesomeIcon className="dislikeButton" onClick={this.props.dislikeUser} icon="times-circle"></FontAwesomeIcon>
+                        <FontAwesomeIcon className="likeButton" onClick={this.likingUser} icon="thumbs-up"></FontAwesomeIcon>
                     </div>
 
                 </div>
