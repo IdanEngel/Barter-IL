@@ -1,6 +1,7 @@
 import './Landing.css'
 import React, { Component } from 'react';
 import { observer, inject } from 'mobx-react';
+import NavBar from '../NavBar';
 
 @inject('userLogin', 'UserData', 'userSignup')
 @observer
@@ -21,6 +22,8 @@ class Signup extends Component {
     render() {
         this.passRoute()
         return (
+            <div>
+                <NavBar />
             <div className="add-users">
                 <label for="username">Username: </label>
                 <input id="username" type="text" onChange={this.updatState} placeholder="username" name='username' />
@@ -41,6 +44,8 @@ class Signup extends Component {
                 <button className="button" onClick={this.addNewUser}>Signup</button>
      
             </div>
+            </div>
+
         )
     }
 }

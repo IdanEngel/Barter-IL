@@ -61,7 +61,7 @@ class Login extends Component {
                         onChange={this.inputHandler} />
                     <input placeholder="password" type="password" name="password"
                         onChange={this.inputHandler} />
-                    <button className="signup-button" onClick={this.findAndRender}>Login</button>
+                    <button className="login-button" onClick={this.findAndRender}>Login</button>
                     {storage ?
                         <Redirect to={`/currentUserPage/:currentUsername` } /> :
                         null}

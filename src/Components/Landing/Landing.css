@@ -7,7 +7,20 @@
 .add-inputs input {
     height: 15%;
 } */
+/*-------- Login Css --------*/
+.login-box{
+    display: grid;
+    grid-auto-columns: auto;
+  }
+  .login-button{
+    width:40%;
+    border-radius: 20%;
+    justify-self: center;
+  }
 
+
+
+ /* ----------Signup Page ----------- */
 input  {
     border: none;
     background-color: transparent;
@@ -17,7 +30,7 @@ input  {
 
 .add-users {
     display: grid;
-    grid-template-columns: 30px 228px;
+    grid-template-columns: 40px 228px;
     align-items: center;
 }
 
@@ -32,4 +45,5 @@ input  {
     display: grid;
     align-items: center;
 
+   
 }

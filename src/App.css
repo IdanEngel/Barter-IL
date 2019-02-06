@@ -121,10 +121,7 @@ h1{
   text-align: center;
 }
 
-.login-box{
-  display: grid;
-  grid-auto-columns: auto;
-}
+
 h2 {
   display: inline-block;
   margin-right: 10px;
@@ -133,12 +130,7 @@ h2 {
   border-radius: 50%;
   height: 30vh;
 }
-.signup-button{
-  width:40%;
-  border-radius: 20%;
-  justify-self: center;
 
-}
 .chat-box{
   background-color: green;
   width:50vw;
