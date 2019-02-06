@@ -46,6 +46,18 @@ router.get('/currentUserPage/:userName', (req, res) => {
         res.send(user)
     })
 })
+router.put('/users', (req, res) => {
+    let currentUserId = req.body.currentUserId
+    console.log(currentUserId)
+    User.findByIdAndUpdate(currentUserId,{
+        $push: {
+            dislikes: req.body.dislikedId
+        }
+    },{ new: true}, function(error, data){
+        console.log(data)
+    })
+    res.send(`${currentUserId} ${req.body.disliked}` )
+})
 
 router.put('/sendmessages/:currentUserId', (req, res) => {
     console.log(req.body.message)
