@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 // import { Link } from 'react-router-dom'
+import './Swiping.css'
 import { observer, inject } from 'mobx-react'
 import Axios from 'axios';
 import User from './User';

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './currentUserPage.css'
 import { Redirect } from 'react-router-dom'
 import Axios from 'axios';
 import NavBar from '../NavBar';

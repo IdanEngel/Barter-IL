@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 import { Redirect } from 'react-router-dom'
 import { observer, inject } from 'mobx-react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import './Landing.css'
 
 @inject('userLogin', 'UserData')
 @observer
@@ -61,7 +62,7 @@ class Login extends Component {
                         onChange={this.inputHandler} />
                     <input placeholder="password" type="password" name="password"
                         onChange={this.inputHandler} />
-                    <button className="signup-button" onClick={this.findAndRender}>Login</button>
+                    <button className="login-button" onClick={this.findAndRender}>Login</button>
                     {storage ?
                         <Redirect to={`/currentUserPage/:currentUsername` } /> :
                         null}
