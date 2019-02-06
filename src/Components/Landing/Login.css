@@ -1,0 +1,9 @@
+.login-box{
+    display: grid;
+    grid-auto-columns: auto;
+  }
+  .login-button{
+    width:40%;
+    border-radius: 20%;
+    justify-self: center;
+  }
