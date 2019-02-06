@@ -29,10 +29,11 @@ class Users extends Component {
             return;
         }
         console.log("we made it")
-        Axios.put(`http://localhost:8000/users/${currentUser._id}`, {
-
+        let matches = await Axios.put(`http://localhost:8000/users/${currentUser._id}`, {
+            
             id: likedUserId
         })
+        
         if(matches.data === 'you have a match'){
             alert(`you have a match with ${likedName}`)
         }

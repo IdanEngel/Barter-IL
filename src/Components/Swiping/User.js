@@ -63,11 +63,12 @@ class User extends Component {
                                             })}
                                         </div>
 
-                                  )
-                                    })}
-                                </div>
+                                  {/* )
+                                    })} */}
+                                
                             </div>
                         </Carousel>
+                        </div>
                     </div>
                     <div className="swiping-buttons">
                         <FontAwesomeIcon className="likeButton" onClick={this.likingUser} icon="heart"></FontAwesomeIcon>
