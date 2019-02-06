@@ -62,7 +62,7 @@ class Users extends Component {
         let newUsers
         for(let user of this.props.UserData.users){
             // console.log(currentUser._id === user._id)
-            console.log(currentUser.likes.includes(user._id)|| currentUser.matches.includes(user._id) || currentUser.dislikes.includes(user._id) || currentUser._id === user._id)
+            // console.log(currentUser.likes.includes(user._id)|| currentUser.matches.includes(user._id) || currentUser.dislikes.includes(user._id) || currentUser._id === user._id)
             if(currentUser.likes.includes(user._id)|| currentUser.matches.includes(user._id) || currentUser.dislikes.includes(user._id) || currentUser._id === user._id){
                 if (newUsers) {
                     newUsers = newUsers.filter(u => u._id !== user._id)

@@ -71,6 +71,7 @@ class Chatbox extends Component {
     render() {
         return (
             <div className="mario-chat">
+            <NavBar />
                 <div className="chat-window">
                     <div className="output">
                         {this.state.messages.map(m => {
