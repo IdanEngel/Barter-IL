@@ -6,14 +6,14 @@ import Login from './Components/Landing/Login';
 import Users from './Components/Swiping/Users';
 import CurrentUser from './Components/UserPage/CurrentUser';
 import Chats from './Components/Chats/Chats';
-import { faUser, faComment, faUserFriends, faHandHoldingHeart, faHeart, faTimesCircle, faHandshake} from '@fortawesome/free-solid-svg-icons'
+import { faUser, faComment, faUserFriends, faHandHoldingHeart, faHeart, faTimesCircle, faHandshake, faThumbsUp} from '@fortawesome/free-solid-svg-icons'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import Chatlist from './Components/Chats/Matches';
 import Signup from './Components/Landing/Signup';
 import ChatBox from './Components/Chats/ChatBox';
 import User from './Components/Swiping/User';
 import ChatWindow from './Components/Chats/ChatWindow';
-library.add(faUser, faComment, faUserFriends, faHandHoldingHeart, faHeart, faTimesCircle,faHandshake)
+library.add(faUser, faComment, faUserFriends, faHandHoldingHeart, faHeart, faTimesCircle,faHandshake, faThumbsUp)
 
 
 

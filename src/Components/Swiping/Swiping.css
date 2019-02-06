@@ -4,10 +4,12 @@
   }
   .text-user {
     text-align: center;
+    padding: 22px;
 }
 .reviews{
     display: grid;
-    grid-template-columns: .5fr 1fr;
+    grid-template-columns: 70px 1fr;
+    padding: 5px;
   }
   .review-text{
     text-align: left;
@@ -15,16 +17,19 @@
   }
   .swiping-buttons{
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 20px 20px;
+    justify-content: center;
+    grid-gap: 38px;
+    font-size: 34px;
+    padding: 10px;
+
   }
-  .dislikeButton{
-    /* float: left; */
-    font-size: 22px;
-  
+  h3{
+    color: black;
   }
+/* 
   .likeButton{
-    /* float: right; */
-    font-size: 22px;
+    float: right;
     color: red
   
-  }
+  } */

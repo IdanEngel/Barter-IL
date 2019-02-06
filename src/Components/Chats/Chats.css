@@ -1,6 +1,4 @@
-h3{
-    color:red;
-}
+
 /* .chats{
     overflow: scroll;
 } */
@@ -92,7 +90,7 @@ body{
   }
   
   button{
-    background: #575ed8;
+    background: #95afc0;
     color: #fff;
     font-size: 18px;
     border: 0;

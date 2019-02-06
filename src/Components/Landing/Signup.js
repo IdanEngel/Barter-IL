@@ -1,4 +1,4 @@
-import './Landing.css'
+import './Signup.css'
 import React, { Component } from 'react';
 import { observer, inject } from 'mobx-react';
 import NavBar from '../NavBar';

@@ -1,0 +1,19 @@
+
+.login-box{
+    display: grid;
+    grid-auto-columns: auto;
+    height: 85%;
+    /* grid-gap:5px; */
+    border-style: ridge;
+    border-radius: 5%;
+  }
+  .login-button{
+    width: 56%;
+    height: 45%;
+    border-radius: 6%;
+    justify-self: center;
+  }
+.login-box input {
+    width: 90%;
+    margin: auto;
+}
