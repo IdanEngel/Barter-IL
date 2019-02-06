@@ -10,7 +10,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 class User extends Component {
 
     likingUser = () => {
-        this.props.likingUser(this.props.user._id)
+        this.props.likingUser(this.props.user._id, this.props.user.name)
 
     }
 
@@ -62,14 +62,16 @@ class User extends Component {
                                                 )
                                             })}
                                         </div>
-                                        {/* <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p> */}
-                                    </div>
-                            </Carousel>
-                        </div>
-                        <div className="swiping-buttons">
-                            <FontAwesomeIcon className="likeButton" onClick={this.likingUser} icon="heart"></FontAwesomeIcon>
-                            <FontAwesomeIcon className="dislikeButton" onClick={this.dislikeUser} icon="times-circle"></FontAwesomeIcon>
-                        </div>
+
+                                  )
+                                    })}
+                                </div>
+                            </div>
+                        </Carousel>
+                    </div>
+                    <div className="swiping-buttons">
+                        <FontAwesomeIcon className="likeButton" onClick={this.likingUser} icon="heart"></FontAwesomeIcon>
+                        <FontAwesomeIcon className="dislikeButton" onClick={this.props.dislikeUser} icon="times-circle"></FontAwesomeIcon>
                     </div>
                     {/* : null} */}
 

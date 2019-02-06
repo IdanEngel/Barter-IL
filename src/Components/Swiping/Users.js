@@ -4,8 +4,6 @@ import { observer, inject } from 'mobx-react'
 import Axios from 'axios';
 import User from './User';
 import NavBar from '../NavBar';
-// import CurrentUser from '../UserPage/CurrentUser';
-// import Carousel from 'nuka-carousel';
 
 @inject('UserData')
 @observer
@@ -21,7 +19,7 @@ class Users extends Component {
         console.log(this.props.UserData.users)
     }
 
-    likingUser = async (likedUserId) => {
+    likingUser = async (likedUserId, likedName) => {
         console.log("here with likeduserid " + likedUserId)
         await this.props.UserData.getUsers()
         this.shouldRender()
@@ -32,8 +30,13 @@ class Users extends Component {
         }
         console.log("we made it")
         Axios.put(`http://localhost:8000/users/${currentUser._id}`, {
+
             id: likedUserId
         })
+        if(matches.data === 'you have a match'){
+            alert(`you have a match with ${likedName}`)
+        }
+        console.log(likedName)
         console.log(`this is the likedID: ${likedUserId}`)
         console.log(currentUser._id)
         this.props.UserData.increaseIndex()

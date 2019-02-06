@@ -4,9 +4,8 @@ import NavBar from '../NavBar';
 import { observer, inject } from 'mobx-react';
 import './Chats.css'
 import Matches from './Matches';
-import ChatBox from './ChatBox';
 
-@inject('UserData','userLogin')
+@inject('UserData', 'userLogin')
 @observer
 class Chats extends Component {
   passRoute = () => {
@@ -17,20 +16,12 @@ class Chats extends Component {
     this.props.UserData.getUsers()
   }
   render() {
-    console.log(this.props.match)
     this.passRoute()
     return (
       <div className="chats">
-      <ChatBox />
         <NavBar />
         <div className="chats-header">New Matches</div>
-        <div className="carousel">
-          {this.props.UserData.users.map(user => {
-            return (
-              <Matches user={user} />
-            )
-          })}
-        </div>
+          <Matches />
         <hr></hr>
         <div className="chats-header">Messages</div>
         <div className="message-list">
