@@ -57,14 +57,12 @@ class CurrentUser extends Component {
                     <img className="currentUser-img" src={finalUserData.imgURL} alt="currentUser-img"></img>
                     <span className="name"> {finalUserData.name} {finalUserData.lastName} </span>
 
-                        <br></br>
-                        <span>
-                        {finalUserData.location}
-                        <br></br>
-                        {finalUserData.age}
-                        </span>
-                    <h3>Skills: </h3>
-                
+                    <br></br>
+                    {finalUserData.location}
+                    <br></br>
+                    {finalUserData.age}
+                    <span className="CU-skills">Skills </span>
+                    <hr className="line"></hr>
                     {skillData}
                     {storage ?
                         null :
