@@ -17,6 +17,7 @@ input  {
 
 .add-users {
     display: grid;
+    grid-template-columns: 30px 228px;
     align-items: center;
 }
 

@@ -8,6 +8,7 @@ class userFromDb {
     @observable index = 0
     @observable currentUser = ""
     @observable currentScreen = ""
+    @observable matchedUserId = ""
 
     @action getUsers = async () => {
         let data = await Axios.get('http://localhost:8000/users')
@@ -21,6 +22,9 @@ class userFromDb {
     }
     @action getCurrentPage = (currentScreen) => {
         this.currentScreen = currentScreen
+    }
+    @action getMatchedUserId = (matchedUserId) =>{
+        this.matchedUserId = matchedUserId
     }
 
 
