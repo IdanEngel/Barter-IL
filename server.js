@@ -65,7 +65,7 @@ io.on('connection', function (socket) {
     })
     socket.on('message', function (data) {
         console.log(data)
-        io.to(data.room).emit('newMessage',data.message)
+        io.to(data.room).emit('newMessage',data)
     })
 
 })
