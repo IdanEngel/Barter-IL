@@ -6,6 +6,7 @@ import NavBar from '../NavBar';
 import { observer, inject } from 'mobx-react';
 import { async } from 'q';
 
+
 @inject('userLogin', 'UserData', 'currentUserData')
 @observer
 class CurrentUser extends Component {
@@ -47,6 +48,7 @@ class CurrentUser extends Component {
         // console.log(finalSkillData);
         let skillData = finalSkillData.map(m => <div>{m} </div>)
 
+
         return (
             <div>
                 {storage ?
@@ -68,6 +70,7 @@ class CurrentUser extends Component {
                         null :
                         <Redirect to='/' />}
                     <button className="logout-button" onClick={this.clearLS}>Logout</button>
+
                 </div>
             </div>
         )

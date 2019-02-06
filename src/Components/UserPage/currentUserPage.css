@@ -1,3 +1,6 @@
+*{
+  font-family: ‘Montserrat’, sans-serif;
+}
 .currentUserPage{
     justify-items: center;
     text-align: center;
@@ -5,8 +8,19 @@
     grid-auto-columns: auto;
     /* grid-gap: 2%; */
     align-items: initial;
+    font-size: 23px
   }
-  .currentUser-img{
+  
+  .header{
+    background: linear-gradient(145deg,#0d47a1,#42a5f5);
+    width: 100%;
+    grid-gap: 15px;
+    justify-items: center;
+    text-align: center;
+    display: grid;
+  }
+
+.currentUser-img{
     border-radius: 50%;
     height: 30vh;
     padding: 8px;
@@ -35,5 +49,6 @@
     font-weight: bold;
     font-size: 20px;
     padding: 15px;
+
 
   }
