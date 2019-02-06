@@ -3,9 +3,10 @@
     display: grid;
     grid-auto-columns: auto;
     height: 85%;
-    /* grid-gap:5px; */
     border-style: ridge;
     border-radius: 5%;
+    width: 90%;
+    margin: auto;
   }
   .login-button{
     width: 56%;
