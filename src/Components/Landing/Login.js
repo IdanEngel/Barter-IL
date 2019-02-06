@@ -9,14 +9,14 @@ import './Login.css'
 @inject('userLogin', 'UserData')
 @observer
 class Login extends Component {
-    getCurrentUserId = () =>{
+    getCurrentUserId = () => {
         // let currentUsername = this.props.userLogin.username
         this.props.userLogin.getCurrentUserId()
     }
 
     passRoute = () => {
         this.props.UserData.getCurrentPage('/loginPage')
-      }
+    }
     inputHandler = (event) => {
         this.props.userLogin.inputHandler(event.target.name, event.target.value)
     }
@@ -49,13 +49,13 @@ class Login extends Component {
         let storage = localStorage.getItem(`username`)
         this.passRoute()
         console.log(this.props.userLogin.username)
-   
+
         let username = this.props.userLogin.username
         return (
             <div>
                 <div className="header">
-                <h1>Barter IL <FontAwesomeIcon icon="handshake"></FontAwesomeIcon> </h1>
-                
+                    Barter IL <FontAwesomeIcon icon="handshake"></FontAwesomeIcon>
+
                 </div>
                 <div className="login-box">
                     <input placeholder="username" type="text" name="username"
@@ -64,11 +64,11 @@ class Login extends Component {
                         onChange={this.inputHandler} />
                     <button className="login-button" onClick={this.findAndRender}>Login</button>
                     {storage ?
-                        <Redirect to={`/currentUserPage/:currentUsername` } /> :
+                        <Redirect to={`/currentUserPage/:currentUsername`} /> :
                         null}
-                <Link to="/signup">
-                    <div >click here to signup</div>
-                </Link>
+                    <Link to="/signup">
+                        <div >click here to signup</div>
+                    </Link>
                 </div>
 
             </div>
