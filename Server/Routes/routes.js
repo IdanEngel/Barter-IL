@@ -2,6 +2,9 @@ const express = require('express')
 const router = express.Router()
 const User = require('../Models/User')
 const Chatkit = require('@pusher/chatkit-server');
+const socket= require('socket.io')
+// const io = require('../../server')
+
 
 
 const chatkit = new Chatkit.default({

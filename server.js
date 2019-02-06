@@ -6,7 +6,7 @@ const app = express()
 const routes = require('./server/Routes/routes')
 const User = require('./server/Models/User')
 const dummyData = require('./src/dummyData')
-const socket= require('socket.io')
+const socket = require('socket.io')
 
 
 app.use(express.static(path.join(__dirname, 'src')))
@@ -41,22 +41,49 @@ const server = app.listen(8000, function () {
 })
 
 const io = socket(server)
-const users={}
 
-io.on('connection', function(socket){
-    console.log('made socket connection', socket.id);
-    // socket.join()
-    socket.on('newUser',(room)=>{
-        users[name]=room
+// io.on('connection', function(socket){
+//     console.log('made socket connection', socket.id);
+//     io.on('newUser',(room)=>{
+//         users[name]=room
+//     })
+
+//     socket.on('chat', function(data){
+//         io.emit('new_message', data)   
+//     })
+
+// })
+
+
+// socket.io chat room
+io.on('connection', function (socket) {
+    console.log('made socket connection', socket.id)
+    socket.on('joinRoom', function (joinedId) {
+        console.log(joinedId)
+        socket.join(joinedId)
+        io.to(joinedId).emit('someoneJoined')
     })
-
-    socket.on('chat', function(data){
-        io.emit('new_message', data)
-        // console.log(socket.nickname)
-        // let newMessage = new Chat({message: data.message, name: socket.nickname})
-        // newMessage.save( )
-    
+    socket.on('message', function (data) {
+        console.log(data)
+        io.to(data.room).emit('newMessage',data.message)
     })
 
 })
 
+// app.post('/joinroom/:currenUserId/:likedUserId', async function (req, res) {
+//     const currenUserId = req.params.currenUserId
+//     const likedUserId = req.params.likedUserId
+//     let joinedId
+//     currenUserId > likedUserId ?
+//         joinedId = currenUserId + likedUserId :
+//         joinedId = likedUserId + currenUserId
+
+//     io.on('connection', function (socket) {
+//         socket.join(joinedId)
+//     })
+//     io.to(joinedId).emit('chat', function (data) {
+
+//     })
+//     res.send(joinedId)
+
+// })

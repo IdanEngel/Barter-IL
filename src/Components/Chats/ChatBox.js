@@ -1,78 +1,89 @@
 import React, { Component } from 'react';
 import './Chats.css';
 import socket from 'socket.io-client'
+import { observer, inject } from 'mobx-react'
 
-class App extends Component {
-  constructor() {
-    super()
-    this.state = {
-      handle: "",
-      message: "",
-      messages: [],
-      user: `${localStorage.getItem('username')}`
+@inject('UserData', 'userLogin')
+@observer
+class ChatBox extends Component {
+    constructor() {
+        super()
+        this.state = {
+            room: "",
+            message: "",
+            messages: [],
+            user: `${localStorage.getItem('username')}`
+        }
+        this.socket = socket(`http://localhost:8000/`)
     }
-    this.socket = socket(`http://localhost:8000/`)
-  }
-  componentDidMount() {
-    this.socket.on("new_message", (data) => {
-      this.addMessage(data)
-    })
-  }
+    componentDidMount() {
+        this.socket.on("newMessage", (data) => {
+            this.addMessage(data)
+        })
+        this.socket.on("someoneJoined",()=>{
+            console.log("someoneJoined");
+        })
+    }
 
-  joinChat = (chatroomName, cb) => {
-    socket.emit('join', chatroomName, cb)
-  }
+    matchedId = async() => {
+        const currentUserId = this.props.UserData.matchedUserId
+        const likedUserId = this.props.userLogin.currentUserId
+        let joinedId
+        currentUserId > likedUserId ?
+            joinedId = currentUserId + likedUserId :
+            joinedId = likedUserId + currentUserId
+            console.log(joinedId)
+        await this.setState({
+            room: joinedId
+        })
+    }
 
-  leaveChat = (chatroom, cb) => {
-    socket.emit('leve', chatroom, cb)
-  }
+    addMessage = (data) => {
+        console.log(data);
+        this.setState({ messages: [...this.state.messages, data] })
+    }
 
-  getAvailableUsers = cb => {
-    socket.emit('availableUsers', null, cb)
-  }
+    inputChange = (event) => {
+        this.setState({
+            [event.target.name]: event.target.value
+        })
+    }
 
-  addMessage = (data) => {
-    console.log(data);
-    this.setState({ messages: [...this.state.messages, data] })
-  }
+    joinRoom = () => {
+        this.socket.emit('joinRoom',this.state.room)
+        console.log(this.state.room);
+        
+    }
+    emitEvents = async () => {
+        await this.matchedId()
+        this.socket.emit('joinRoom',this.state.room)
+        console.log(this.state.room);
+        this.socket.emit('message', {
+            room: this.state.room,
+            message: this.state.message
+        })
+    }
+    
 
-  inputChange = (event) => {
-    this.setState({
-      [event.target.name]: event.target.value
-    })
-  }
+    render() {
+        return (
+            <div className="mario-chat">
+                <div className="chat-window">
+                    <div className="output">
+                        {this.state.messages.map(m => {
+                            return (
+                                <div><strong>user</strong>: {m}</div>
+                            )
+                        })}
+                    </div>
+                </div>
+                {/* <input type="text" className="room" placeholder="room" name="room" onChange={this.inputChange} /> */}
+                <input type="text" className="message" placeholder="message" name="message" onChange={this.inputChange} />
+                <button className="send" onClick={this.emitEvents}>Send</button>
 
- chatHistory = (userName) => {
-   
- }
-
-  emitEvents = () => {
-    this.socket.emit('chat', {
-      handle: this.state.handle,
-      message: this.state.message
-    })
-    this.setState({ message: '' })
-  }
-
-  render() {
-    return (
-      <div className="mario-chat">
-        <div className="chat-window">
-          <div className="output">
-            {this.state.messages.map(m => {
-              return (
-                <div><strong>{m.handle}</strong>: {m.message}</div>
-              )
-            })}
-          </div>
-        </div>
-        <input type="text" className="handle" placeholder="handle" name="handle" onChange={this.inputChange} />
-        <input type="text" className="message" placeholder="message" name="message" onChange={this.inputChange} />
-        <button className="send" onClick={this.emitEvents}>Send</button>
-
-      </div>
-    );
-  }
+            </div>
+        );
+    }
 }
 
-export default App;
+export default ChatBox;
