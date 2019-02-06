@@ -120,10 +120,10 @@ router.put('/users/:currentUser', (req, res) => {
             res.send(`you have a match`)
         } else {
             updateLikes(activeUser, likedUser)
+            res.end()
         }
 
     })
-    res.end()
 })
 
 router.post('/user', (req, res) => {
