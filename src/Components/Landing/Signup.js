@@ -24,6 +24,7 @@ class Signup extends Component {
         return (
             <div>
                 <NavBar />
+                <h2>Sign Up</h2>
                 <div className="add-users">
                     <label for="username">Username: </label>
                     <input id="username" type="text" onChange={this.updatState} placeholder="username" name='username' />
@@ -41,9 +42,9 @@ class Signup extends Component {
                     <input id="age" type="number" onChange={this.updatState} placeholder="age" name='age' />
                     <label for="image">Image: </label>
                     <input id="image" type="text" onChange={this.updatState} placeholder="image" name='imgURL' />
-                    <button className="button" onClick={this.addNewUser}>Signup</button>
 
                 </div>
+                    <button className="signup-button" onClick={this.addNewUser}>Signup</button>
             </div>
 
         )

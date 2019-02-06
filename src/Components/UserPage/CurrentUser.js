@@ -63,12 +63,13 @@ class CurrentUser extends Component {
                         <br></br>
                         {finalUserData.age}
                         </span>
-                    <h4>Skills: {skillData}</h4>
-
+                    <h3>Skills: </h3>
+                
+                    {skillData}
                     {storage ?
                         null :
                         <Redirect to='/' />}
-                    <button onClick={this.clearLS}>Logout</button>
+                    <button className="logout-button" onClick={this.clearLS}>Logout</button>
                 </div>
             </div>
         )

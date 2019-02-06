@@ -8,7 +8,7 @@
 }
 .reviews{
     display: grid;
-    grid-template-columns: 70px 1fr;
+    grid-template-columns: 80px 1fr;
     padding-left: 20px;
     }
   .review-text{
@@ -20,7 +20,7 @@
     grid-template-columns: 20px 20px;
     margin-left: 25%;
     grid-gap: 23vw;
-    font-size: 25px;
+    font-size: 28px;
     color:white;
 
   }
@@ -40,4 +40,15 @@
 }
 .button-icon{
   text-align: center
+}
+.logout-button{
+  background: #95afc0;
+  color: #fff;
+  font-size: 19px;
+  border: 0;
+  padding: 12px 0;
+  width: 86%;
+  border-radius: 5px;
+  padding: 16px;
+
 }
