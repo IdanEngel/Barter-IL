@@ -57,7 +57,7 @@ class User extends Component {
                                             {user.reviews.map(review => {
                                                 return (
                                                     <div className="reviews">
-                                                        <div className="review-text">{review.username}:</div>
+                                                        <div className="review-text"><strong>{review.username}</strong>:</div>
                                                         <div className="review-text">{review.review}</div>
                                                     </div>
                                                 )
@@ -69,7 +69,7 @@ class User extends Component {
                         </div>
                     </div>
                     <div className="swiping-buttons">
-                        <FontAwesomeIcon className="dislikeButton" onClick={this.props.dislikeUser} icon="times-circle"></FontAwesomeIcon>
+                        <FontAwesomeIcon className="dislikeButton" onClick={this.dislikeUser} icon="times-circle"></FontAwesomeIcon>
                         <FontAwesomeIcon className="likeButton" onClick={this.likingUser} icon="thumbs-up"></FontAwesomeIcon>
                     </div>
 

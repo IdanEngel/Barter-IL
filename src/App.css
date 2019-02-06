@@ -3,12 +3,12 @@
   grid-template-columns: 1fr 1fr 1fr;
   background-color:  #00b894 ;
   text-align: center;
-  margin: auto;
   height: 4vh;
 }
 .nav-bar a{
   color: white;
   text-decoration: none;
+  margin: auto;
 }
 
 * {

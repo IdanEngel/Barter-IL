@@ -4,6 +4,7 @@
   }
   .text-user {
     text-align: center;
+    padding: 22px;
 }
 .reviews{
     display: grid;
@@ -21,6 +22,9 @@
     font-size: 34px;
     padding: 10px;
 
+  }
+  h3{
+    color: black;
   }
 /* 
   .likeButton{
