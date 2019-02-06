@@ -1,0 +1,30 @@
+.swipeUser-info {
+    display: grid;
+    justify-content: center;
+  }
+  .text-user {
+    text-align: center;
+}
+.reviews{
+    display: grid;
+    grid-template-columns: .5fr 1fr;
+  }
+  .review-text{
+    text-align: left;
+  
+  }
+  .swiping-buttons{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+  .dislikeButton{
+    /* float: left; */
+    font-size: 22px;
+  
+  }
+  .likeButton{
+    /* float: right; */
+    font-size: 22px;
+    color: red
+  
+  }

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './Swiping.css'
 import { observer, inject } from 'mobx-react'
 import Carousel from 'nuka-carousel';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -62,9 +63,6 @@ class User extends Component {
                                                 )
                                             })}
                                         </div>
-
-                                  {/* )
-                                    })} */}
                                 
                             </div>
                         </Carousel>
@@ -74,11 +72,9 @@ class User extends Component {
                         <FontAwesomeIcon className="likeButton" onClick={this.likingUser} icon="heart"></FontAwesomeIcon>
                         <FontAwesomeIcon className="dislikeButton" onClick={this.props.dislikeUser} icon="times-circle"></FontAwesomeIcon>
                     </div>
-                    {/* : null} */}
 
                 </div>
             )
-            // return null
         }
     }
 export default User

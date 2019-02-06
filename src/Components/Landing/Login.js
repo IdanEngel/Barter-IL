@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 import { Redirect } from 'react-router-dom'
 import { observer, inject } from 'mobx-react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import './Landing.css'
 
 @inject('userLogin', 'UserData')
 @observer

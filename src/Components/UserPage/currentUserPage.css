@@ -1,0 +1,12 @@
+.currentUserPage{
+    justify-items: center;
+    text-align: center;
+    display: grid;
+    grid-auto-columns: auto;
+    grid-gap: 2%;
+    align-items: initial;
+  }
+  .currentUser-img{
+    border-radius: 50%;
+    height: 30vh;
+  }
