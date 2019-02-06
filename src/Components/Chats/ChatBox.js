@@ -11,6 +11,7 @@ class Chatbox extends Component {
         super()
         this.state = {
             room: "",
+            username:"",
             message: "",
             messages: [],
             user: `${localStorage.getItem('username')}`
@@ -63,12 +64,14 @@ class Chatbox extends Component {
         console.log(this.state.room);
         this.socket.emit('message', {
             room: this.state.room,
-            message: this.state.message
+            message: this.state.message,
+            username: this.props.userLogin.username
         })
     }
     
 
     render() {
+        const username = this.props.userLogin.username
         return (
             <div className="mario-chat">
             <NavBar />
@@ -76,12 +79,12 @@ class Chatbox extends Component {
                     <div className="output">
                         {this.state.messages.map(m => {
                             return (
-                                <div><strong>user</strong>: {m}</div>
+                                <div><strong>{m.username}</strong>: {m.message}</div>
                             )
                         })}
                     </div>
                 </div>
-                {/* <input type="text" className="room" placeholder="room" name="room" onChange={this.inputChange} /> */}
+                {/* <input type="text" className="username" placeholder="username" name="username" onChange={this.inputChange} /> */}
                 <input type="text" className="message" placeholder="message" name="message" onChange={this.inputChange} />
                 <button className="send" onClick={this.emitEvents}>Send</button>
 
