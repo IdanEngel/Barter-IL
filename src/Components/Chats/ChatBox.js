@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
+import NavBar from '../NavBar';
 import './Chats.css';
 import socket from 'socket.io-client'
 import { observer, inject } from 'mobx-react'
 
 @inject('UserData', 'userLogin')
 @observer
-class ChatBox extends Component {
+class Chatbox extends Component {
     constructor() {
         super()
         this.state = {
@@ -23,6 +24,8 @@ class ChatBox extends Component {
         this.socket.on("someoneJoined",()=>{
             console.log("someoneJoined");
         })
+
+
     }
 
     matchedId = async() => {
@@ -81,9 +84,13 @@ class ChatBox extends Component {
                 <input type="text" className="message" placeholder="message" name="message" onChange={this.inputChange} />
                 <button className="send" onClick={this.emitEvents}>Send</button>
 
+
+ 
+
             </div>
         );
     }
 }
 
-export default ChatBox;
+
+export default Chatbox;

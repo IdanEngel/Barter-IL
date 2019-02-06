@@ -15,6 +15,7 @@ const userSchema = new Scehma ({
     messages: Array,
     location: String,
     age: Number,
+    dislikes: Array,
     skills: Array,
     imgURL: String
 })
