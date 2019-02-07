@@ -27,12 +27,13 @@ class Matches extends Component {
         })
         return matchedUserData
     }
-    componentDidMount() {
+    async componentDidMount() {
+      await this.props.UserData.getUsers()
         this.getMatchedUsers()
     }
     render() {
         let matchedUsers = this.state.matchedUsers
-        console.log(this.props.userLogin.currentUserId)
+        console.log(this.state.matchedUsers)
         return (
             <div className="singleMatch-imgDiv">
                 {matchedUsers.map(match=>{
