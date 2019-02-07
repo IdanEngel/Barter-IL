@@ -11,10 +11,9 @@ class Chatbox extends Component {
         super()
         this.state = {
             room: "",
-            username:"",
+            username: "",
             message: "",
-            messages: [],
-            user: `${localStorage.getItem('username')}`
+            messages: []
         }
         this.socket = socket(`http://localhost:8000/`)
     }
@@ -22,21 +21,21 @@ class Chatbox extends Component {
         this.socket.on("newMessage", (data) => {
             this.addMessage(data)
         })
-        this.socket.on("someoneJoined",()=>{
+        this.socket.on("someoneJoined", () => {
             console.log("someoneJoined");
         })
-
+        this.emitEvents()
 
     }
 
-    matchedId = async() => {
+    matchedId = async () => {
         const currentUserId = this.props.UserData.matchedUserId
         const likedUserId = this.props.userLogin.currentUserId
         let joinedId
         currentUserId > likedUserId ?
             joinedId = currentUserId + likedUserId :
             joinedId = likedUserId + currentUserId
-            console.log(joinedId)
+        console.log(joinedId)
         await this.setState({
             room: joinedId
         })
@@ -54,27 +53,29 @@ class Chatbox extends Component {
     }
 
     joinRoom = () => {
-        this.socket.emit('joinRoom',this.state.room)
+        this.socket.emit('joinRoom', this.state.room)
         console.log(this.state.room);
-        
+
     }
     emitEvents = async () => {
         await this.matchedId()
-        this.socket.emit('joinRoom',this.state.room)
+        this.socket.emit('joinRoom', this.state.room)
         console.log(this.state.room);
-        this.socket.emit('message', {
-            room: this.state.room,
-            message: this.state.message,
-            username: this.props.userLogin.username
-        })
+        if(this.state.message !== ""){
+            this.socket.emit('message', {
+                room: this.state.room,
+                message: this.state.message,
+                username: this.props.userLogin.username
+            })
+        }
     }
-    
+
 
     render() {
-        const username = this.props.userLogin.username
+        // this.emivents()
         return (
             <div className="mario-chat">
-            <NavBar />
+                <NavBar />
                 <div className="chat-window">
                     <div className="output">
                         {this.state.messages.map(m => {
@@ -89,7 +90,7 @@ class Chatbox extends Component {
                 <button className="send" onClick={this.emitEvents}>Send</button>
 
 
- 
+
 
             </div>
         );
