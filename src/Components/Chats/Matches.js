@@ -7,12 +7,12 @@ import Axios from 'axios';
 import SingleMatch from './SingleMatch';
 
 
-@inject('UserData','userLogin')
+@inject('UserData', 'userLogin')
 @observer
 class Matches extends Component {
-    constructor(){
+    constructor() {
         super()
-        this.state={
+        this.state = {
             matchedUsers: []
         }
     }
@@ -28,20 +28,22 @@ class Matches extends Component {
         return matchedUserData
     }
     async componentDidMount() {
-      await this.props.UserData.getUsers()
-        this.getMatchedUsers()
+        this.props.UserData.setCurrentUser()
+        await this.props.UserData.getUsers()
+        await this.getMatchedUsers()
+        this.forceUpdate()
     }
     render() {
         let matchedUsers = this.state.matchedUsers
         console.log(this.state.matchedUsers)
         return (
             <div className="singleMatch-imgDiv">
-                {matchedUsers.map(match=>{
-                    return(<SingleMatch matchedUser={match} />)
+                {matchedUsers.map(match => {
+                    return (<SingleMatch matchedUser={match} />)
                 })}
             </div>
 
-            
+
 
         )
     }
