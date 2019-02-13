@@ -15,7 +15,7 @@ app.use(express.static(path.join(__dirname, 'node_modules')))
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 
-mongoose.connect(`mongodb://localhost/BarterIL`, { useNewUrlParser: true })
+mongoose.connect(process.env.MONGODB_URI || `mongodb://localhost/BarterIL`, { useNewUrlParser: true })
 
 app.use(function (req, res, next) {
     res.header('Access-Control-Allow-Origin', '*')
@@ -34,9 +34,9 @@ let saveToDB = () => {
         UserData.save()
     }
 }
-// saveToDB()
+saveToDB()
 
-const server = app.listen(8000, function () {
+const server = app.listen(process.env.PORT || 8000, function () {
     console.log(`Yo yo i'm running here!`)
 })
 
