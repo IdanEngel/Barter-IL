@@ -69,7 +69,7 @@ class Login extends Component {
                         <Redirect to={`/currentUserPage/:currentUsername`} /> :
                         null}
                     <Link to="/signup" >
-                        <div className="signup-button">Sign up</div>
+                        <div >click here to signup</div>
 
                     </Link>
                 </div>

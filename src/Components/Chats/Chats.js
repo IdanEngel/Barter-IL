@@ -20,12 +20,12 @@ class Chats extends Component {
     return (
       <div className="chats">
         <NavBar />
-        <div className="chats-header">New Matches</div>
+        <div className="chats-header">Chats</div>
           <Matches />
-        <hr></hr>
-        <div className="chats-header">Messages</div>
-        <div className="message-list">
-        </div>
+        {/* <hr></hr> */}
+        {/* <div className="chats-header">Messages</div>
+        <div className="message-list"> */}
+        {/* </div> */}
       </div>
     );
   }
