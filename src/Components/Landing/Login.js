@@ -30,11 +30,13 @@ class Login extends Component {
     findAndRender = async () => {
         let username = this.props.userLogin.username
         let password = this.props.userLogin.password
+        let currentUserId = this.props.userLogin.currentUserId
         await this.props.UserData.getUsers()
         let currentUser = this.props.UserData.users
             .find(user => user.username === username)
         if (currentUser && currentUser.password === password) {
             await localStorage.setItem(`username`, username)
+            await localStorage.setItem(`id`, currentUserId)
             this.forceUpdate()
         }
 
@@ -48,7 +50,6 @@ class Login extends Component {
         this.getCurrentUserId()
         let storage = localStorage.getItem(`username`)
         this.passRoute()
-        console.log(this.props.userLogin.username)
 
         let username = this.props.userLogin.username
         return (

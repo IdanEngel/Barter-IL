@@ -12,6 +12,7 @@ import Chatbox from './ChatBox';
 class SingleMatch extends Component {
     sendMatchedUserId = () =>{
         this.props.UserData.getMatchedUserId(this.props.matchedUser._id)
+        localStorage.setItem('matchedUser', this.props.matchedUser._id)
         console.log(`matchedUserId: ${this.props.matchedUser._id}`)
     }
     render() {

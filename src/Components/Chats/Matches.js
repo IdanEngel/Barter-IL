@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
 import './Chats.css'
 import { observer, inject } from 'mobx-react'
-import { async } from 'q';
 import Axios from 'axios';
 import SingleMatch from './SingleMatch';
 
@@ -17,8 +15,8 @@ class Matches extends Component {
         }
     }
     getMatchedUsers = async () => {
-        //hard coded for one currentuser, need to inject currentUserId from store...
-        let currentUserId = this.props.userLogin.currentUserId
+        // let currentUserId = this.props.userLogin.currentUserId
+        let currentUserId = localStorage.getItem('id')
         console.log(currentUserId)
         let matchedUsers = await Axios.get(`http://localhost:8000/getMatches/${currentUserId}`)
         let matchedUserData = matchedUsers.data

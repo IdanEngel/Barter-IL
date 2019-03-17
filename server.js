@@ -34,7 +34,7 @@ let saveToDB = () => {
         UserData.save()
     }
 }
-saveToDB()
+// saveToDB()
 
 const server = app.listen(process.env.PORT || 8000, function () {
     console.log(`Yo yo i'm running here!`)
