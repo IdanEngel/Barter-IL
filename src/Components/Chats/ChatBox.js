@@ -29,8 +29,10 @@ class Chatbox extends Component {
     }
 
     matchedId = async () => {
-        const currentUserId = this.props.UserData.matchedUserId
-        const likedUserId = this.props.userLogin.currentUserId
+        // const currentUserId = this.props.UserData.matchedUserId
+        // const likedUserId = this.props.userLogin.currentUserId
+        const currentUserId = localStorage.getItem('id')
+        const likedUserId = localStorage.getItem('matchedUser')
         let joinedId
         currentUserId > likedUserId ?
             joinedId = currentUserId + likedUserId :
@@ -65,14 +67,13 @@ class Chatbox extends Component {
             this.socket.emit('message', {
                 room: this.state.room,
                 message: this.state.message,
-                username: this.props.userLogin.username
+                username: localStorage.getItem('username')
             })
         }
     }
 
 
     render() {
-        // this.emivents()
         return (
             <div className="mario-chat">
                 <NavBar />

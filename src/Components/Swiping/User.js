@@ -12,7 +12,6 @@ class User extends Component {
 
     likingUser = () => {
         this.props.likingUser(this.props.user._id, this.props.user.name)
-
     }
 
     dislikeUser = () => {
@@ -26,6 +25,7 @@ class User extends Component {
 
     render() {
         const user = this.props.user
+        
         return (
             <div>
                 <div className="swipe-card">

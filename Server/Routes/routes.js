@@ -7,10 +7,6 @@ const socket= require('socket.io')
 
 
 
-const chatkit = new Chatkit.default({
-    instanceLocator: 'v1:us1:5be2ab98-48ee-41f2-a814-0adeb5e65142',
-    key: 'f64ccf1c-2215-44f5-a5b0-38b064e4e6f9:Is7KDpsNvfg8uqnB7xVMIJ4dDbgXupHooKZkhMEeaKw='
-})
 
 //get all users
 router.get('/users', (req, res) => {
